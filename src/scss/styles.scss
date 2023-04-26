@@ -1,0 +1,11 @@
+// MAIN SCSS FILE
+
+// Base
+@use './base/reset';
+@use './base/variables';
+
+
+// Components
+@use './partials/body';
+@use './partials/header';
+@use './partials/footer';
