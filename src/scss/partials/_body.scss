@@ -1,7 +1,27 @@
 @use '../base/variables' as *;
 
+// TYPOGRAPHY
+a {
+    color: $bodyCol;
+    text-decoration: none;
+
+    // add visited, hover, active, focus, 
+}
+
+.button-link {
+    border: 1px solid $bodyCol;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+
+// CONTAINERS
 body {
     background-color: $backgroundCol;
     font-family: $mainFont;
     color: $bodyCol;
+}
+
+main {
+    padding: 0 1rem;
 }

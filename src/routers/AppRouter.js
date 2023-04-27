@@ -2,11 +2,18 @@
 
 // Development Components
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// Components
+// Base Components
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-import About from '../pages/About';
-import Watchlist from '../pages/Watchlist';
+// Router Pages
+import PageHome from '../pages/PageHome';
+import PageAbout from '../pages/PageAbout';
+import PageWatchlist from '../pages/PageWatchlist';
+import PageSingleMovie from '../pages/PageSingleMovie';
+import PageNotFound from '../pages/PageNotFound';
+
+
 
 
 function AppRouter() {
@@ -14,10 +21,14 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Header />
-            <Routes>
-                <Route path="/about"  element={<About />} />
-                <Route path="/watchlist" element={<Watchlist />} />
-            </Routes>
+        <Routes>
+          <Route path="/" exact element={<PageHome />} />
+          <Route path="/about" exact element={<PageAbout />} />
+          <Route path="/watchlist" exact element={<PageWatchlist />} />
+          <Route path="/movie/:id" exact element={<PageSingleMovie />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
