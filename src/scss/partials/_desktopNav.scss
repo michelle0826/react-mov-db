@@ -1,0 +1,32 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+
+@include mq(768) {
+    
+    .main-nav {
+        height: 5rem;
+        visibility: visible;
+        transition: none;
+        .open{
+            transition: none;
+            height:auto; 
+        }
+
+        ul {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        li {
+            padding-left:1rem;
+            padding-right:1rem;
+        
+            a {
+                color: $bodyCol;
+            }
+        }
+    }
+
+
+}
