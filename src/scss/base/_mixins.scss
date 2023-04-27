@@ -1,0 +1,18 @@
+@use 'sass:math'; 
+
+//FOR MEDIA QUERIES
+@function em($px, $bc: 16) {
+  @return #{math.div($px, $bc)}em;
+}
+
+@function rem($px) {
+  @return #{math.div($px, 16)}rem;
+}
+
+@mixin mq($w) {
+    $w: em($w);
+  
+    @media (min-width: $w) {
+      @content;
+    }
+  }

@@ -1,0 +1,119 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.nav-btn-container {
+    border: none;
+    background: none;
+
+    @include mq(768){
+        display:none;
+    }
+
+    .line {
+        width: 36px;
+        height: 5px;
+        background-color: $brandCol ;
+        display: block;
+        margin: 8px auto;
+
+       
+        //HAMBURGER ANIMATION -- JESSE COUCH (EDITED)
+        // https://codepen.io/designcouch/pen/ExvwPY
+
+        &:nth-child(1) {
+            transition: all 0.3s ease-in-out;
+            top: 0px;
+            -webkit-transform-origin: left center;
+            -moz-transform-origin: left center;
+            -o-transform-origin: left center;
+            transform-origin: left center;
+        }
+
+        &:nth-child(2){
+            transition: all 0.3s ease-in-out;
+            top: 18px;
+            -webkit-transform-origin: left center;
+            -moz-transform-origin: left center;
+            -o-transform-origin: left center;
+            transform-origin: left center;
+        }
+
+        &:nth-child(3){
+            transition: all 0.3s ease-in-out;
+            top: 36px;
+            -webkit-transform-origin: left center;
+            -moz-transform-origin: left center;
+            -o-transform-origin: left center;
+            transform-origin: left center;
+
+        }
+
+        .open &:nth-child(2) {
+            width: 0;
+        }
+
+        .open &:nth-child(1) {
+            transition: all 0.3s ease-in-out;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: -3px;
+            left: 8px;
+        }
+
+        .open &:nth-child(3) {
+            transition: all 0.3s ease-in-out;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 39px;
+            left: 8px;
+        }
+
+       
+
+    }
+   
+
+}
+
+.main-nav {
+    width: 100%;
+    //background color
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: height 0.5s ease, visibility 0s 0.5s;
+    position: relative;
+
+    .open & {
+        transition: height 0.5s ease, visibility 0s;
+        visibility: visible;
+        height: 254px;
+    }
+
+    ul {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+
+    }
+
+    li {
+        line-height: 3rem;
+
+        a {
+            text-transform: uppercase;
+            color: $bodyCol;
+            text-decoration: none;
+        }
+    }
+
+}

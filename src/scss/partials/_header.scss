@@ -5,6 +5,10 @@ header {
     font-family: $mainFont;
     border-radius: 0 0 1rem 1rem;
     padding: 0 1rem;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
 
     h1 {
         color: $brandCol;

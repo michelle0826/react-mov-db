@@ -3,9 +3,12 @@
 // Base
 @use './base/reset';
 @use './base/variables';
+@use './base/mixins';
 
 
 // Components
 @use './partials/body';
 @use './partials/header';
 @use './partials/footer';
+@use './partials/mobileNav';
+@use './partials/desktopNav'; 
