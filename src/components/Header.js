@@ -28,7 +28,7 @@ function Header() {
 
     return (
         <header className={navOpen ? 'open' : undefined}>
-            <h1>HEADER PLACEHOLDER</h1>
+            <Link to="/"><h1>LOGO</h1></Link>
             <button className="nav-btn-container"
                 onMouseDown={(e) => { e.preventDefault(); }}
                  onClick={showHideNav}>
