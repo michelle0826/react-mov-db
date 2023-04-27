@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 const Nav = ({showHideNav}) => {
+    
     function closeNav(e){
         e.target.blur();
         showHideNav();

@@ -17,9 +17,10 @@ function Header() {
         }
     }
 
+    //not applying at desktop size, open class still gets applied
 
     useEffect(() => {
-        let mediaQuery = window.matchMedia('min-width:600px');
+        let mediaQuery = window.matchMedia ('min-width:768px');
         mediaQuery.addEventListener('change', isDesktop)
         //cleanup funciton to remove the listener 
         return () => mediaQuery.removeEventListener('change', isDesktop); 
