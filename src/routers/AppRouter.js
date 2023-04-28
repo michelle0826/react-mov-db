@@ -13,16 +13,16 @@ import PageWatchlist from '../pages/PageWatchlist';
 import PageSingleMovie from '../pages/PageSingleMovie';
 import PageNotFound from '../pages/PageNotFound';
 
-
-
-
 function AppRouter() {
   return (
     <BrowserRouter>
       <div className="wrapper">
         <Header />
         <Routes>
-          <Route path="/" exact element={<PageHome />} />
+          <Route path="/" exact element={<PageHome/>} />
+
+          <Route path="/category/:categoryName" element={<PageHome />} />
+
           <Route path="/about" exact element={<PageAbout />} />
           <Route path="/watchlist" exact element={<PageWatchlist />} />
           <Route path="/movie/:id" exact element={<PageSingleMovie />} />
