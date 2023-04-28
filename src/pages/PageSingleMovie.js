@@ -27,6 +27,10 @@ function PageSingleMovie() {
             fetchMovie();
     }, [])
 
+    // loop over so the site is Youtube, and video type as Trailer -- in array 
+    // return key 
+    //use share embed youtube video and dynamically change the key 
+
     return(
         <main>
             <section className='single-movie-page'>
