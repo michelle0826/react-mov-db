@@ -1,29 +1,58 @@
-// HOME PAGE
 
-
+import { useEffect, useState } from "react";
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
+import { API_TOKEN } from '../globals/auth';
+// import NavSort from '../components/NavSort'
+import Movies from '../components/Movies';
 
-function PageHome() {
-    
-    // For select options
-    const { categoryName } = useParams();
-    const navigate = useNavigate();
+function PageHome({ sort = 'popular' }) {
 
- 
-    const switchCategory = (e) => {
-        const category = e.target.value;
-        navigate(`/category/${category}`);
-    };
+  // For select options
+  const { categoryName } = useParams();
+  const navigate = useNavigate();
 
+
+  const switchCategory = (e) => {
+      const category = e.target.value;
+      navigate(`/category/${category}`);
+  };
+
+  const [movieData, setMovieData] = useState([]);
+
+
+  useEffect(() => {
+
+    const fetchMovies = async () => {
+
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${sort}?language=en-US&page=1`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + API_TOKEN
+        }
+      });
+
+      let rawMovieData = await res.json();
       
+      rawMovieData = rawMovieData.results.splice(0, 12);
+      
+      console.log(rawMovieData);
 
-    return (
-        <main>
-            <section>
-                <h1>This is the Home Page.</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit porro, dolorem, quod facere enim voluptate provident quo labore vero repellat nemo animi ad exercitationem rem quos, possimus libero deleniti laudantium?</p>
-            </section>
+      setMovieData(rawMovieData);
+
+    }
+    
+    fetchMovies();
+
+  }, [sort])
+
+
+
+  return (
+    <section className="home-page">
+        {/* <NavSort /> */}
             <nav className='category-select'>
+
                 <label htmlFor="browse-by">Browse By</label>
                 <select name="category-list" id="category-list" value={categoryName} onChange={switchCategory}>
             
@@ -41,17 +70,8 @@ function PageHome() {
                     <li><NavLink to={"/category/upcoming"} >Upcoming</NavLink></li>
                 </ul>
             </nav>
-
-            {/* <nav className="category-select">
-                
-            </nav> */}
-
-                       
-        
-        </main>
-        
-    );
-
-};
-
-export default PageHome;
+      <Movies movieData={movieData} />
+    </section>
+  )
+}
+export default PageHome
