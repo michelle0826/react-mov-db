@@ -12,4 +12,6 @@
 @use './partials/footer';
 @use './partials/mobileNav';
 @use './partials/desktopNav';
-@use './partials/_moviesCategory'; 
+@use './partials/_moviesCategory';
+@use './partials/_moviesContainer';
+@use './partials/_movieCard'; 
