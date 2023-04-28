@@ -2,29 +2,57 @@
 import { useEffect, useState } from "react";
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { API_TOKEN } from '../globals/auth';
-// import NavSort from '../components/NavSort'
 import Movies from '../components/Movies';
 
-function PageHome({ sort = 'popular' }) {
+function PageHome() {
+
+    // Sorting out the movies. Using useParam in case we end up with a select options menu so sorting should be working in both cases
+
+   const { categoryName } = useParams();
+
+   const setCategoryUrl = (categoryName) => {
+    let categoryUrl;
+    switch (categoryName){
+      case 'popular':
+        categoryUrl = 'popular';
+        break;
+      case 'top-rated':
+        categoryUrl = 'top_rated';
+        break;
+      case 'now-playing':
+        categoryUrl = 'now_playing';
+        break;
+      case 'upcoming':
+        categoryUrl = 'upcoming';
+        break;
+      default:
+        categoryUrl = 'popular';
+    }
+      
+    return categoryUrl;
+
+  }
 
   // For select options
-  const { categoryName } = useParams();
+  
   const navigate = useNavigate();
-
 
   const switchCategory = (e) => {
       const category = e.target.value;
       navigate(`/category/${category}`);
   };
 
-  const [movieData, setMovieData] = useState([]);
+  //Fetching movies
 
+  const [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
 
     const fetchMovies = async () => {
 
-      const res = await fetch(`https://api.themoviedb.org/3/movie/${sort}?language=en-US&page=1`, {
+      const categoryUrl = setCategoryUrl(categoryName)
+
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${categoryUrl}?language=en-US&page=1`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
@@ -36,7 +64,7 @@ function PageHome({ sort = 'popular' }) {
       
       rawMovieData = rawMovieData.results.splice(0, 12);
       
-      console.log(rawMovieData);
+      
 
       setMovieData(rawMovieData);
 
@@ -44,13 +72,13 @@ function PageHome({ sort = 'popular' }) {
     
     fetchMovies();
 
-  }, [sort])
+  }, [categoryName])
 
 
 
   return (
     <section className="home-page">
-        {/* <NavSort /> */}
+        
             <nav className='category-select'>
 
                 <label htmlFor="browse-by">Browse By</label>
