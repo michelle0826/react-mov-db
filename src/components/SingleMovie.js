@@ -1,6 +1,30 @@
 import noPoster from "../images/no-movie-poster.jpg";
 
+
 function SingleMovie({ movieObj }) {
+
+    function findTrailer(){
+        const videoData = movieObj.videos.results
+        let key = null;
+        for(let i = 0; i < videoData.length; i++){
+            const currentVideo = videoData[i];
+
+            console.log(`Current video:`, currentVideo);
+            
+            if(currentVideo.site === "YouTube" && currentVideo.type === "Trailer"){
+                key = currentVideo.key;
+                break;
+            }
+        }
+
+        console.log(`Key:`, key); 
+    
+        return key; 
+    }
+    
+    const key = findTrailer();
+
+
     return (
         <div className="single-movie">
             <div className="single-movie-backdrop"
@@ -26,6 +50,14 @@ function SingleMovie({ movieObj }) {
                     ))}</p>
                     <p>Runtime: {movieObj.runtime} mins</p>
                     <p>{movieObj.overview}</p>
+                    {key && (
+                    <iframe
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${key}`}
+                        title="Trailer"
+                        allowfullscreen
+                    ></iframe>)}
 
                 </div>
             </div>

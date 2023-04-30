@@ -12,7 +12,7 @@ function PageSingleMovie() {
     //FETCHING SINGLE MOVIE DATA FROM ID RETREIVED BY useParams
     useEffect (() => {
         const fetchMovie = async () => {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, {
+            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&append_to_response=videos`, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -25,7 +25,10 @@ function PageSingleMovie() {
         }
 
             fetchMovie();
+
+            
     }, [])
+
 
     // loop over so the site is Youtube, and video type as Trailer -- in array 
     // return key 
