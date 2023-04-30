@@ -9,7 +9,7 @@ function SingleMovie({ movieObj }) {
         for(let i = 0; i < videoData.length; i++){
             const currentVideo = videoData[i];
 
-            console.log(`Current video:`, currentVideo);
+            // console.log(`Current video:`, currentVideo);
             
             if(currentVideo.site === "YouTube" && currentVideo.type === "Trailer"){
                 key = currentVideo.key;
@@ -17,7 +17,7 @@ function SingleMovie({ movieObj }) {
             }
         }
 
-        console.log(`Key:`, key); 
+        // console.log(`Key:`, key); 
     
         return key; 
     }
@@ -43,7 +43,7 @@ function SingleMovie({ movieObj }) {
                     <p>Rating: {movieObj.vote_average}</p>
                     <h2>{movieObj.title}</h2>
                     <p>Release Date: {movieObj.release_date}</p>
-                    <p>Genres:{movieObj.genres.map((genre, index) => (
+                    <p>Genres: {movieObj.genres.map((genre, index) => (
                         <span key={genre.id}>
                             {genre.name}{index !== movieObj.genres.length - 1 && ', '}
                         </span>
@@ -52,11 +52,11 @@ function SingleMovie({ movieObj }) {
                     <p>{movieObj.overview}</p>
                     {key && (
                     <iframe
-                        width="560"
-                        height="315"
+                        width="420"
+                        height="236.25"
                         src={`https://www.youtube.com/embed/${key}`}
                         title="Trailer"
-                        allowfullscreen
+                        allowFullScreen
                     ></iframe>)}
 
                 </div>
