@@ -5,8 +5,8 @@
     border: none;
     background: none;
 
-    @include mq($tablet){
-        display:none;
+    @include mq($tablet) {
+        display: none;
     }
 
     .line {
@@ -16,7 +16,7 @@
         display: block;
         margin: 8px auto;
 
-       
+
         //HAMBURGER ANIMATION -- JESSE COUCH (EDITED)
         // https://codepen.io/designcouch/pen/ExvwPY
 
@@ -29,7 +29,7 @@
             transform-origin: left center;
         }
 
-        &:nth-child(2){
+        &:nth-child(2) {
             transition: all 0.3s ease-in-out;
             top: 18px;
             -webkit-transform-origin: left center;
@@ -38,7 +38,7 @@
             transform-origin: left center;
         }
 
-        &:nth-child(3){
+        &:nth-child(3) {
             transition: all 0.3s ease-in-out;
             top: 36px;
             -webkit-transform-origin: left center;
@@ -72,16 +72,15 @@
             left: 8px;
         }
 
-       
+
 
     }
-   
+
 
 }
 
 .main-nav {
     width: 100%;
-    //background color
     height: 0;
     overflow: hidden;
     visibility: hidden;
@@ -105,6 +104,8 @@
         text-align: center;
 
     }
+
+    
 
     li {
         line-height: 3rem;

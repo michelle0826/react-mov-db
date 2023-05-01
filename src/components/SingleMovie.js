@@ -46,14 +46,15 @@ function SingleMovie({ movieObj }) {
                     ))}</p>
                     <p>Runtime: {movieObj.runtime} mins</p>
                     <p>{movieObj.overview}</p>
-                    {key && (
+                    {key ? (
                     <iframe
                         width="420"
                         height="236.25"
                         src={`https://www.youtube.com/embed/${key}`}
                         title="Trailer"
                         allowFullScreen
-                    ></iframe>)}
+                    ></iframe>) 
+                    : <img className="no-trailer" src={`https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`} alt={movieObj.title}/>}
 
                 </div>
             </div>
