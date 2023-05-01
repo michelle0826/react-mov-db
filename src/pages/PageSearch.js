@@ -28,6 +28,7 @@ function PageSearch() {
 
   return (
     <div>
+        {query && <h1>Search results for: "{query}" </h1>}
         <Movies results={results}/>
        
     </div>

@@ -54,7 +54,7 @@ function SingleMovie({ movieObj }) {
                         title="Trailer"
                         allowFullScreen
                     ></iframe>) 
-                    : <img className="no-trailer" src={`https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`} alt={movieObj.title}/>}
+                    : (movieObj.backdrop_path ?(<img className="no-trailer" src={`https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`} alt={movieObj.title}/>) : null )}
 
                 </div>
             </div>
