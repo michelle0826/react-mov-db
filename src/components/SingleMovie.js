@@ -1,4 +1,5 @@
 import noPoster from "../images/no-movie-poster.jpg";
+import { formatRating, formatDate } from "../globals/formatters";
 import { getStorage } from "../utilities/localStorageUtils";
 import AddToWatch from "./AddToWatch";
 
@@ -39,12 +40,10 @@ function SingleMovie({ movieObj }) {
                     }
                 </div>
                 <div className="single-movie-info">
-
                     <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
-
                     <p>Rating: {movieObj.vote_average}</p>
                     <h2>{movieObj.title}</h2>
-                    <p>Release Date: {movieObj.release_date}</p>
+                    <p>Release Date: {formatDate(movieObj.release_date)}</p>
                     <p>Genres: {movieObj.genres.map((genre, index) => (
                         <span key={genre.id}>
                             {genre.name}{index !== movieObj.genres.length - 1 && ', '}
@@ -52,14 +51,15 @@ function SingleMovie({ movieObj }) {
                     ))}</p>
                     <p>Runtime: {movieObj.runtime} mins</p>
                     <p>{movieObj.overview}</p>
-                    {key && (
+                    {key ? (
                     <iframe
                         width="420"
                         height="236.25"
                         src={`https://www.youtube.com/embed/${key}`}
                         title="Trailer"
                         allowFullScreen
-                    ></iframe>)}
+                    ></iframe>) 
+                    : (movieObj.backdrop_path ?(<img className="no-trailer" src={`https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`} alt={movieObj.title}/>) : null )}
 
                 </div>
             </div>

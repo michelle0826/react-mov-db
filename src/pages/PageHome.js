@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 import { API_TOKEN } from '../globals/auth';
+import Banner from '../components/Banner';
 import Movies from '../components/Movies';
 import CategoryNav from "../components/CategoryNav";
 
@@ -79,6 +80,7 @@ function PageHome() {
 
   return (
     <section className="home-page">
+      <Banner />
       <CategoryNav />
       <Movies movieData={movieData} />
     </section>

@@ -1,9 +1,10 @@
 import MovieCard from './MovieCard';
 
-function Movies({ movieData}) {
+function Movies({ movieData , results}) {
+
   return (
     <div className='movies-container'>
-        {movieData.map((oneMovie) => <MovieCard key={oneMovie.id} movieObj={oneMovie}/>)}
+        {movieData ? movieData.map((oneMovie) => <MovieCard key={oneMovie.id} movieObj={oneMovie}/>): results.map((oneMovie) => <MovieCard key={oneMovie.id} movieObj={oneMovie} />) }
     </div>
   )
 }
