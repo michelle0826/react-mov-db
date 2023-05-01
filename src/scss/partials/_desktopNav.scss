@@ -3,25 +3,33 @@
 
 
 @include mq($tablet) {
-    
+
     .main-nav {
         height: 5rem;
         visibility: visible;
         transition: none;
-        .open{
+
+        .open {
             transition: none;
-            height:auto; 
+            height: auto;
         }
 
         ul {
             display: flex;
             justify-content: flex-end;
+
+            // form {
+            //     display: block;
+            //     margin-top: auto;
+            //     margin-bottom: auto;
+                
+            // }
         }
 
         li {
-            padding-left:1rem;
-            padding-right:1rem;
-        
+            padding-left: 1rem;
+            padding-right: 1rem;
+
             a {
                 color: $bodyCol;
             }
