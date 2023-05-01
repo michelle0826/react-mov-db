@@ -5,7 +5,7 @@
     border: none;
     background: none;
 
-    @include mq(768){
+    @include mq($tablet){
         display:none;
     }
 

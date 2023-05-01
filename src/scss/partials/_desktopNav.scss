@@ -2,7 +2,7 @@
 @use '../base/variables' as *;
 
 
-@include mq(768) {
+@include mq($tablet) {
     
     .main-nav {
         height: 5rem;
