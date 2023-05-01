@@ -9,34 +9,38 @@
     justify-content: center;
     gap: 1rem;    
     margin: 3rem auto;
+    padding: 0 1rem;
+
+    p {
+        margin: 0;
+        padding: 0.5rem 0 ;
+    }
 }
 
 .category-nav {
-    border-radius: 2rem;
-    height: fit-content;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
+    border: 1px solid $bodyCol;
     background: $midgroundCol;
+    text-align: center;
+    border-radius: 2rem;
     width: 10rem;
-    
-    > p {
-        margin: 0;
-        padding: 0.5rem;
-        width: 100%;
-        background-color: $midgroundCol;
-    }
+    height: fit-content;
+    overflow: hidden;
     
     ul {
         list-style: none;
         text-align: center;
         padding: 0;
         margin: 0;
+        display: none;
 
         li {
             width: 100%;
+            // background: linear-gradient(to left, $midgroundCol 50%, $brandCol 50%) right;
+            // background-size: 200% 100%;
+            // transition: all 0.3s ease-in-out;
 
             &:hover, &:focus, &:active {
+                // background-position: left;
                 background-color: $brandCol;
             }
         }
@@ -46,7 +50,7 @@
             width: 100%;
             padding: 0.5rem;
 
-            &:hover, &:focus, &:active {
+            &:hover {
                 color: $midgroundCol;
             }
         }
@@ -55,31 +59,21 @@
 
 
 @media (max-width: 767px) {
-    .category-nav {
-        border: 1px solid $bodyCol;
-
-        ul {
-            display: none;
-
-            &.show {
-                display: block;
-            }
-        }
+    .category-nav ul.show {
+        display: block;
     }
 }
 
 @media (min-width: 768px) {
 
-    .category-section > p {
+    .category-section p {
         display: none;
     }
 
     .category-nav {
-        width: 80%;
-        
-        > p {
-            display: none;
-        }
+        border: none;
+        width: 100%;
+        max-width: 64rem;
         
         ul {
             display: flex;
@@ -88,7 +82,6 @@
             li {
                 border-radius: 2rem;
             }
-
         }
     }
 }
