@@ -3,7 +3,7 @@
 
 .single-movie-content{
     margin:1rem;
-    @include mq($desktop){
+    @include mq($laptop){
         display:flex;
         margin:4rem;
     }
@@ -15,19 +15,19 @@
             margin-left:auto;
             margin-right:auto;
             border-radius: 1rem;
-            @include mq($desktop){
+            @include mq($laptop){
                 width:75%;
                 
             }
         }
 
-        @include mq ($desktop){
+        @include mq ($laptop){
             display:flex;
             align-items: center;
         }
     }
     .single-movie-info{
-        @include mq ($desktop){
+        @include mq ($laptop){
             margin-left:1rem;
             width:75%;
         }
