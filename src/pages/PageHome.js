@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { NavLink, useParams, useNavigate } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import { API_TOKEN } from '../globals/auth';
 import Movies from '../components/Movies';
 import CategoryNav from "../components/CategoryNav";
@@ -36,12 +36,12 @@ function PageHome() {
 
   // For select options
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const switchCategory = (e) => {
-      const category = e.target.value;
-      navigate(`/category/${category}`);
-  };
+  // const switchCategory = (e) => {
+  //     const category = e.target.value;
+  //     navigate(`/category/${category}`);
+  // };
 
   //Fetching movies
 

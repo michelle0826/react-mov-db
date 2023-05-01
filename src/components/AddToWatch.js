@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { setStorage, getStorage } from '../utilities/localStorageUtils';
+import {setStorage} from '../utilities/localStorageUtils';
 
 function AddToWatch(props) {
     const [watchlistMovies, setWatchlistMovies] = useState(props.addedMovies);
