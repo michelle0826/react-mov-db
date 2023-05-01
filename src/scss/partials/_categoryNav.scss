@@ -1,33 +1,33 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
-.category-nav {
-    width: fit-content;
+.category-section {
+    width: 100%;
     margin: 0 auto;
     display: flex;
-    gap: 1rem;
-    margin: 1rem auto;
     align-items: center;
+    justify-content: center;
+    gap: 1rem;    
+    margin: 3rem auto;
 }
 
-.category-nav nav {
-    border: 1px solid $bodyCol;
+.category-nav {
     border-radius: 2rem;
-    font-size: 1rem;
     height: fit-content;
+    padding: 0;
     overflow: hidden;
-
-    button {
-        border: none;
-        background-color: transparent;
-        color: $bodyCol;
-        padding: 0.5rem 2rem;
-        margin: 0 auto;
-        font-size: 1rem;
-        font-family: $mainFont;
+    text-align: center;
+    background: $midgroundCol;
+    width: 10rem;
+    
+    > p {
+        margin: 0;
+        padding: 0.5rem;
+        width: 100%;
+        background-color: $midgroundCol;
     }
-
+    
     ul {
-        display: block;
         list-style: none;
         text-align: center;
         padding: 0;
@@ -36,31 +36,59 @@
         li {
             width: 100%;
 
-            &:hover {
+            &:hover, &:focus, &:active {
                 background-color: $brandCol;
             }
         }
-        
+
         a, a:visited {
-            width: 100%;
             display: block;
+            width: 100%;
             padding: 0.5rem;
 
-            &:hover, &:active, &:focus {
+            &:hover, &:focus, &:active {
                 color: $midgroundCol;
             }
         }
-
     }
-
 }
 
-@media (min-width: $tablet){
-    .category-nav>p {
+
+@media (max-width: 767px) {
+    .category-nav {
+        border: 1px solid $bodyCol;
+
+        ul {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    .category-section > p {
         display: none;
     }
-    
-    .category-nav ul {
-        display: block;
+
+    .category-nav {
+        width: 80%;
+        
+        > p {
+            display: none;
+        }
+        
+        ul {
+            display: flex;
+            white-space: nowrap;
+
+            li {
+                border-radius: 2rem;
+            }
+
+        }
     }
 }

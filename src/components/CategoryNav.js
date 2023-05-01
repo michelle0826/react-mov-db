@@ -10,13 +10,18 @@ function CategoryNav() {
     setIsOpen(false);
   }
 
+  function handleNavClick() {
+    if (window.innerWidth < 768){
+      setIsOpen(!isOpen);
+    }
+  }
+
   return (
-    <div className='category-nav'>
+    <section className='category-section'>
       <p>Browse by: </p>
-      <nav>
-      <button onClick={() => [setIsOpen(!isOpen), setSelectedOption('Select option')]}>{selectedOption}</button>
-      {isOpen && (
-        <ul>
+      <nav className='category-nav' onClick={handleNavClick}>
+        <p>{selectedOption}</p>
+        <ul className={ isOpen || window.innerWidth >= 768 ? 'show' : ''}>
           <li onClick={() => handleOptionClick('Popular')}>
             <NavLink to={"/category/popular"}>Popular</NavLink>
           </li>
@@ -30,10 +35,9 @@ function CategoryNav() {
             <NavLink to={"/category/upcoming"}>Upcoming</NavLink>
           </li>
         </ul>
-      )}
       </nav>
-    </div>
+    </section>
   );
 }
 
-export default CategoryNav
+export default CategoryNav;
