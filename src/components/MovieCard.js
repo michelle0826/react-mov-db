@@ -1,22 +1,26 @@
 import { Link } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
+import { formatDate, formatRating, formatTitle, formatOverview } from '../globals/formatters';
 
 function MovieCard({ movieObj }) {
+
   return (
     <div className='movie-card'>
-        <div className='movie-poster'>
+        <div className='poster'>
             {movieObj.poster_path === null ?
                 // true
-                <img src={noPoster} alt="No poster available" /> :
+                <img src={noPoster} alt={`No poster available for ${movieObj.title}`} /> :
                 // false
                 <img src={`https://image.tmdb.org/t/p/w500/${movieObj.poster_path}`} alt={movieObj.title} />
             }
         </div>
 
-        <div className='movie'>
-            <h3>{movieObj.title}</h3>
-            {/* add other props here*/}
-            <Link classname="button-link" to={`/movie/${movieObj.id}`}>More Info</Link>
+        <div className='info'>
+            <h2>{formatTitle(movieObj.title)}</h2>
+            <p className='rating'>{formatRating(movieObj.vote_average)}</p>
+            <p className='date'>{formatDate(movieObj.release_date)}</p>
+            <p>{formatOverview(movieObj.overview)}</p>
+            <Link className="button-link" to={`/movie/${movieObj.id}`}>More Info</Link>
         </div>
 
     </div>

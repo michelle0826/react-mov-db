@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { API_TOKEN } from '../globals/auth';
 import Movies from '../components/Movies';
+import CategoryNav from "../components/CategoryNav";
 
 function PageHome() {
 
-    // Sorting out the movies. Using useParam in case we end up with a select options menu so sorting should be working in both cases
+  // Sorting out the movies. Using useParam in case we end up with a select options menu so sorting should be working in both cases
 
    const { categoryName } = useParams();
 
@@ -78,26 +79,7 @@ function PageHome() {
 
   return (
     <section className="home-page">
-        
-            <nav className='category-select'>
-
-                <label htmlFor="browse-by">Browse By</label>
-                <select name="category-list" id="category-list" value={categoryName} onChange={switchCategory}>
-            
-                    <option value="popular">Popular</option>
-                    <option value="top-rated">Top Rated</option>
-                    <option value="now-playing">Now Playing</option>
-                    <option value="upcoming">Upcoming</option>
-
-                </select>
-
-                <ul>
-                    <li><NavLink to={"/category/popular"}>Popular</NavLink></li>
-                    <li><NavLink to={"/category/top-rated"}>Top Rated</NavLink></li>
-                    <li><NavLink to={"/category/now-playing"}>Now Playing</NavLink></li>
-                    <li><NavLink to={"/category/upcoming"} >Upcoming</NavLink></li>
-                </ul>
-            </nav>
+      <CategoryNav />
       <Movies movieData={movieData} />
     </section>
   )
