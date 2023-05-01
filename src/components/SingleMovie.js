@@ -1,7 +1,10 @@
 import noPoster from "../images/no-movie-poster.jpg";
+import { getStorage } from "../utilities/localStorageUtils";
+import AddToWatch from "./AddToWatch";
 
 
 function SingleMovie({ movieObj }) {
+    const addedMovies = getStorage("watchlistMovies");
 
     //checking the api to access videos, pulling video if it is a youtube trailer 
     function findTrailer(){
@@ -36,6 +39,9 @@ function SingleMovie({ movieObj }) {
                     }
                 </div>
                 <div className="single-movie-info">
+
+                    <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
+
                     <p>Rating: {movieObj.vote_average}</p>
                     <h2>{movieObj.title}</h2>
                     <p>Release Date: {movieObj.release_date}</p>
