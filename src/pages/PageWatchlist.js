@@ -1,6 +1,7 @@
 // WATCHLIST PAGE
 
 import { getStorage } from "../utilities/localStorageUtils";
+import MovieCard from "../components/MovieCard";
 
 
 function PageWatchlist() {
@@ -8,11 +9,11 @@ function PageWatchlist() {
 
     return(
         <main>
-        <ul>
-            {addedMovies.map((movie,) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+            <div className="movies-container"> 
+                {addedMovies.map((movie) => (
+                <MovieCard key={movie.id} movieObj={movie} />
+                ))}
+            </div>
         </main>
     )
 }
