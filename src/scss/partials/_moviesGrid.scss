@@ -1,0 +1,82 @@
+@use '../base/variables' as *;
+
+// MOVIE POSTERS
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  grid-template-rows: auto;
+  max-width: 64rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+}
+
+.movie-card {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  &:hover, &:active, &:focus {
+    
+    .poster img {
+      opacity: 0.1;
+    }
+
+    .info {
+      z-index: 2;
+      top: 0%;
+    }
+  }
+
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  
+    img {
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      object-fit: cover;
+    }
+
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 0.7rem;
+  padding: 0.5rem;
+  position: absolute;
+  top: 100%;
+  z-index: -1;
+  transition: all 0.2s ease-in;
+
+  h2, p {
+    margin: 0;
+  }
+
+  .date {
+    font-weight: 600;
+  }
+
+  .button-link {
+    width: fit-content;
+    padding: 0.25rem 1rem;
+    align-self: center;
+    margin-top: auto; // positions to bottom
+
+    &:hover, &:active, &:focus {
+      border: 1px solid $midgroundCol;
+      background-color: $brandCol;
+      color: $midgroundCol;
+    }
+  }
+
+}

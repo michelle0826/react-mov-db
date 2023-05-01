@@ -1,0 +1,94 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.category-section {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;    
+    margin: 3rem auto;
+}
+
+.category-nav {
+    border-radius: 2rem;
+    height: fit-content;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    background: $midgroundCol;
+    width: 10rem;
+    
+    > p {
+        margin: 0;
+        padding: 0.5rem;
+        width: 100%;
+        background-color: $midgroundCol;
+    }
+    
+    ul {
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+
+        li {
+            width: 100%;
+
+            &:hover, &:focus, &:active {
+                background-color: $brandCol;
+            }
+        }
+
+        a, a:visited {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+
+            &:hover, &:focus, &:active {
+                color: $midgroundCol;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px) {
+    .category-nav {
+        border: 1px solid $bodyCol;
+
+        ul {
+            display: none;
+
+            &.show {
+                display: block;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    .category-section > p {
+        display: none;
+    }
+
+    .category-nav {
+        width: 80%;
+        
+        > p {
+            display: none;
+        }
+        
+        ul {
+            display: flex;
+            white-space: nowrap;
+
+            li {
+                border-radius: 2rem;
+            }
+
+        }
+    }
+}
