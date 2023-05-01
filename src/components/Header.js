@@ -26,7 +26,7 @@ function Header() {
         return () => {
             mediaQuery.removeEventListener('change', isDesktop)
         };
-    }, [isDesktop])
+    }, [])
 
     return (
         <header className={navOpen ? 'open' : undefined}>

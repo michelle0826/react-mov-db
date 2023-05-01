@@ -12,6 +12,7 @@ import PageAbout from '../pages/PageAbout';
 import PageWatchlist from '../pages/PageWatchlist';
 import PageSingleMovie from '../pages/PageSingleMovie';
 import PageNotFound from '../pages/PageNotFound';
+import PageSearch from '../pages/PageSearch';
 
 function AppRouter() {
   return (
@@ -22,6 +23,7 @@ function AppRouter() {
           <Route path="/" element={<PageHome/>} />
 
           <Route path="/category/:categoryName" element={<PageHome />} />
+          <Route path= "/search/:query" element={<PageSearch/>}/>
 
           <Route path="/about" element={<PageAbout />} />
           <Route path="/watchlist" element={<PageWatchlist />} />
