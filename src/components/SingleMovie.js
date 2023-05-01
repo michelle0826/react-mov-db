@@ -1,4 +1,5 @@
 import noPoster from "../images/no-movie-poster.jpg";
+import { formatRating, formatDate } from "../globals/formatters";
 
 
 function SingleMovie({ movieObj }) {
@@ -36,9 +37,9 @@ function SingleMovie({ movieObj }) {
                     }
                 </div>
                 <div className="single-movie-info">
-                    <p>Rating: {movieObj.vote_average}</p>
+                    <p>Rating: {formatRating(movieObj.vote_average)}</p>
                     <h2>{movieObj.title}</h2>
-                    <p>Release Date: {movieObj.release_date}</p>
+                    <p>Release Date: {formatDate(movieObj.release_date)}</p>
                     <p>Genres: {movieObj.genres.map((genre, index) => (
                         <span key={genre.id}>
                             {genre.name}{index !== movieObj.genres.length - 1 && ', '}

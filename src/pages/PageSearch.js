@@ -24,10 +24,14 @@ function PageSearch() {
         
     }, [query])
 
+    if (results.length === 0 ){
+        return <h1 className="no-result">No results found for "{query}"</h1>
+    }
 
 
   return (
-    <div>
+    
+    <div className="search-results">
         {query && <h1>Search results for: "{query}" </h1>}
         <Movies results={results}/>
        

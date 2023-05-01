@@ -1,0 +1,28 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+form{
+   
+    .search-input{
+        background-color: $backgroundCol;
+        color: $bodyCol;
+        padding:0.5rem;
+        border-radius: 1rem;
+        border: 1px solid;
+        position:relative;
+
+    }
+
+    // .submit-search{
+     
+    // }
+}
+.search-results{
+    h1{
+        margin:1rem;
+    }
+}
+
+.no-result{
+    margin:1rem;
+}
