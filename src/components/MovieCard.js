@@ -4,6 +4,8 @@ import { formatDate, formatRating, formatTitle, formatOverview } from '../global
 
 function MovieCard({ movieObj }) {
 
+  const formatPosterOverview = formatOverview(movieObj.overview, 80);
+
   return (
     <div className='movie-card'>
         <div className='poster'>
@@ -19,7 +21,7 @@ function MovieCard({ movieObj }) {
             <h2>{formatTitle(movieObj.title)}</h2>
             <p className='rating'>{formatRating(movieObj.vote_average)}</p>
             <p className='date'>{formatDate(movieObj.release_date)}</p>
-            <p>{formatOverview(movieObj.overview)}</p>
+            <p>{formatPosterOverview}</p>
             <Link className="button-link" to={`/movie/${movieObj.id}`}>More Info</Link>
         </div>
 
