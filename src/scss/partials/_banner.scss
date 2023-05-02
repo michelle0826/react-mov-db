@@ -1,0 +1,51 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.banner-section {
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  max-width: 64rem;
+  height: fit-content;
+  margin: 0.5rem;
+  
+  div {
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2rem 0.5rem;
+    overflow: hidden;
+
+    h1 {
+      margin: 0.5rem 0;
+    }
+
+    p {
+      margin: 0.5rem 0;
+    }
+  
+    .date {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (min-width: 48rem){
+  .banner-section {
+    margin: 1rem auto 0;
+
+    div {
+      padding: 5rem 2rem;
+
+      .overview {
+        max-width: 60%;
+      }
+
+    }
+  }
+ 
+}

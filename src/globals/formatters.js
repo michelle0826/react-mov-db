@@ -3,8 +3,19 @@ title.length > 30 ? title.slice(0, 30) + '...': title;
 
 export const formatRating = (rating) => (rating * 10) + '%';
 
-export const formatOverview = (overview) =>
-overview.length > 80 ? overview.slice(0, 80) + '...': overview;
+export function formatOverview(overview) {
+  // check if 'overview' is falsy (empty/undefined) -> will cause error on splice
+  if(!overview){
+    return '';
+  }
+
+  if (window.innerWidth < 768){
+    return overview.slice(0, 150) + '...';
+  }
+  else {
+    return overview;
+  }
+}
 
 export function formatDate(date){
     const dateParts = new Date(date);
