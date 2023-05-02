@@ -1,4 +1,5 @@
 import { API_TOKEN } from '../globals/auth';
+import { useState } from 'react';
 
 function Banner () {
     const [movieData, setMovieData] = useState([]);
