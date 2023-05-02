@@ -9,7 +9,7 @@
   height: fit-content;
   margin: 0.5rem;
   
-  div {
+  > div {
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 2rem 0.5rem;
+    padding: 3rem 0.5rem;
     overflow: hidden;
 
     h1 {
@@ -31,7 +31,16 @@
     .date {
       font-weight: 600;
     }
+
+    div:last-child {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0.5rem 0;
+      padding: 0;
+    }
   }
+
 }
 
 @media (min-width: 48rem){
@@ -42,7 +51,7 @@
       padding: 5rem 2rem;
 
       .overview {
-        max-width: 60%;
+        max-width: 70%;
       }
 
     }

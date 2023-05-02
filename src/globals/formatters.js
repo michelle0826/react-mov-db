@@ -3,17 +3,13 @@ title.length > 30 ? title.slice(0, 30) + '...': title;
 
 export const formatRating = (rating) => (rating * 10) + '%';
 
-export function formatOverview(overview) {
+export function formatOverview(overview, maxLength) {
   // check if 'overview' is falsy (empty/undefined) -> will cause error on splice
   if(!overview){
     return '';
   }
-
-  if (window.innerWidth < 768){
-    return overview.slice(0, 150) + '...';
-  }
   else {
-    return overview;
+    return overview.slice(0, maxLength) + '...';;
   }
 }
 

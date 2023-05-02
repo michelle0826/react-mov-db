@@ -1,5 +1,6 @@
 import { API_TOKEN } from '../globals/auth';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { formatRating, formatDate, formatOverview} from '../globals/formatters';
 
 function Banner() {
@@ -23,13 +24,25 @@ function Banner() {
         fetchBannerMovie();
     }, [])
 
+    const formatBannerOverview = (overview) => {
+        if(window.innerWidth < 768){
+            return formatOverview(overview, 150);
+        }
+        else {
+            return overview;
+        }
+    }
+
     return (
         <section className="banner-section" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${bannerMovie.backdrop_path})`}}>
             <div>
                 <p className='date'>In theatres {formatDate(bannerMovie.release_date)}</p>
                 <h1>{bannerMovie.title}</h1>
-                <p className='overview'>{formatOverview(bannerMovie.overview)}</p>
-                <p>Rating: {formatRating(bannerMovie.vote_average)}</p>
+                <p className='overview'>{formatBannerOverview(bannerMovie.overview)}</p>
+                <div>
+                    <p>Rating: {formatRating(bannerMovie.vote_average)}</p>
+                    <Link className="button-link" to={`/movie/${bannerMovie.id}`}>More Info</Link>
+                </div>
             </div>
         </section>
     )
