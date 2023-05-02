@@ -1,10 +1,7 @@
 import noPoster from "../images/no-movie-poster.jpg";
-<<<<<<<<< Temporary merge branch 1
 import { formatRating, formatDate } from "../globals/formatters";
-=========
 import { getStorage } from "../utilities/localStorageUtils";
 import AddToWatch from "./AddToWatch";
->>>>>>>>> Temporary merge branch 2
 
 
 function SingleMovie({ movieObj }) {
@@ -45,8 +42,8 @@ function SingleMovie({ movieObj }) {
                 <div className="single-movie-info">
                     <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
 
-                    <p>Rating: {movieObj.vote_average}</p>
->>>>>>>>> Temporary merge branch 2
+                    <p>Rating: {formatRating(movieObj.vote_average)}</p>
+
                     <h2>{movieObj.title}</h2>
                     <p>Release Date: {formatDate(movieObj.release_date)}</p>
                     <p>Genres: {movieObj.genres.map((genre, index) => (
