@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
+import { HiOutlineSearch } from 'react-icons/hi';
 
 
 function SearchBar(props) {
@@ -23,7 +24,7 @@ function SearchBar(props) {
         <form className="search-bar" onSubmit={handleSubmit}>
             <div className="search-container">
                 <input className="search-input" type="text" placeholder="Search" value={query} onChange={handleSearchInput} />
-                <button className="submit-search" type="submit">Search</button>
+                <button className="submit-search" type="submit"><HiOutlineSearch/></button>
             </div>
         </form>
 

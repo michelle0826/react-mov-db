@@ -1,7 +1,7 @@
 export const formatTitle = (title) =>
 title.length > 30 ? title.slice(0, 30) + '...': title;
 
-export const formatRating = (rating) => (rating * 10) + '%';
+export const formatRating = (rating) => (rating * 10).toFixed(1) + '%';
 
 export const formatOverview = (overview) =>
 overview.length > 80 ? overview.slice(0, 80) + '...': overview;
