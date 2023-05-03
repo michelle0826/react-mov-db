@@ -1,28 +1,62 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
-form{
-   
-    .search-input{
-        background-color: $backgroundCol;
-        color: $bodyCol;
-        padding:0.5rem;
-        border-radius: 1rem;
-        border: 1px solid;
+form {
+
+    .search-container {
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        width:10.5rem;
         position:relative;
+        @include mq ($tablet){
+            position: relative;
+        }
+
+        .search-input {
+            background-color: $backgroundCol;
+            color: $bodyCol;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            border: 1px solid;
+
+            &:focus {
+                box-shadow: 2px 2px 5px $brandCol;
+            }
+        }
+
+        .submit-search {
+            background: none;
+            border: none;
+            color: $bodyCol;
+            position:absolute;
+            bottom:0;
+            top:0;
+            right:0;
+            margin-right:0.75rem;
+
+            @include mq ($tablet) {
+                position: absolute;
+                top:1rem;
+                bottom: 0;
+                right: 0;
+                margin-bottom: 0.8rem;
+                margin-right: 0.8rem;
+            }
+
+        }
 
     }
 
-    // .submit-search{
-     
-    // }
+
 }
-.search-results{
-    h1{
-        margin:1rem;
+
+.search-results {
+    h1 {
+        margin: 1rem;
     }
 }
 
-.no-result{
-    margin:1rem;
+.no-result {
+    margin: 1rem;
 }
