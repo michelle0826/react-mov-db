@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
-const Nav = ({ showHideNav }) => {
+const Nav = ({ showHideNav, setNavOpen }) => {
 
     function closeNav(e) {
         if (window.innerWidth < 768){
@@ -15,7 +15,7 @@ const Nav = ({ showHideNav }) => {
             <ul>
                 <li onClick={closeNav}><NavLink to="/About">About</NavLink></li>
                 <li onClick={closeNav}><NavLink to="/Watchlist">Watchlist</NavLink></li>
-                <li> <SearchBar/></li>
+                <li><SearchBar setNavOpen={setNavOpen} /></li>
             </ul>
         </nav>
                
