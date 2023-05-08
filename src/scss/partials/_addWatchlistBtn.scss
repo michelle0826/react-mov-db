@@ -1,0 +1,14 @@
+@use '../base/variables' as *;
+
+.add-watchlist-btn {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+
+  svg{
+    color: $bodyCol;
+    height: 2.5rem;
+    width: 2.5rem;
+     
+    }
+}
