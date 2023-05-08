@@ -41,7 +41,8 @@ function Header() {
                 </span>
                 {/* <span className="sr-only">Menu</span> */}
             </button>
-            <Nav showHideNav={showHideNav} />
+            <Nav showHideNav={showHideNav} setNavOpen={setNavOpen} />
+            
         </header>
     )
 }
