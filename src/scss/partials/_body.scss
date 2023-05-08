@@ -1,11 +1,13 @@
 @use '../base/variables' as *;
 
 // TYPOGRAPHY
-a {
+a, a:visited {
     color: $bodyCol;
     text-decoration: none;
 
-    // add visited, hover, active, focus, 
+    &:hover, &:active, &:focus {
+        color: $brandCol;
+    } 
 }
 
 .button-link {
@@ -28,3 +30,4 @@ main {
     padding: 0 1rem;
     position: relative;
 }
+
