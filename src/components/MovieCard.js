@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import noPoster from '../images/no-movie-poster.jpg';
 import { formatDate, formatRating, formatTitle, formatOverview } from '../globals/formatters';
+import { getStorage } from "../utilities/localStorageUtils";
+import AddToWatch from './AddToWatch';
 
 function MovieCard({ movieObj }) {
+
+  //addedMovies is needed to keep track of what movies are added to the watchlist
+  const addedMovies = getStorage("watchlistMovies");
 
   const formatPosterOverview = formatOverview(movieObj.overview, 80);
 
@@ -19,6 +24,7 @@ function MovieCard({ movieObj }) {
 
         <div className='info'>
             <h2>{formatTitle(movieObj.title)}</h2>
+            <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
             <p className='rating'>{formatRating(movieObj.vote_average)}</p>
             <p className='date'>{formatDate(movieObj.release_date)}</p>
             <p>{formatPosterOverview}</p>
