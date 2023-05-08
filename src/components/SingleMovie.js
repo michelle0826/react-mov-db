@@ -40,10 +40,10 @@ function SingleMovie({ movieObj }) {
                     }
                 </div>
                 <div className="single-movie-info">
-                    <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
-
-                    <p>Rating: {formatRating(movieObj.vote_average)}</p>
-
+                    <div className="first-row">
+                        <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
+                        <p>Rating: {formatRating(movieObj.vote_average)}</p>
+                    </div>
                     <h2>{movieObj.title}</h2>
                     <p>Release Date: {formatDate(movieObj.release_date)}</p>
                     <p>Genres: {movieObj.genres.map((genre, index) => (

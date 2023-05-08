@@ -6,37 +6,48 @@ import Movies from "../components/Movies";
 
 function PageSearch() {
     const { query } = useParams();
-    const [results, setResults] = useState([]); 
+    const [results, setResults] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchSearchData = async () => {
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`)
 
-            let searchResultData = await response.json();
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
 
-            searchResultData = searchResultData.results
+                if (!response.ok) {
+                    setError('Sorry, an error occurred while retrieving movie data');
+                } else {
+                    let searchResultData = await response.json();
+                    searchResultData = searchResultData.results;
+                    setResults(searchResultData);
+                    setError(null);
+                }
+            } catch (error) {
+                setError('Sorry, an error occurred while retrieving movie data');
+            }
 
-            setResults(searchResultData);
         }
 
-        fetchSearchData(); 
-    
-        
+        fetchSearchData();
+
+
     }, [query])
 
-    if (results.length === 0 ){
+    if (results.length === 0) {
         return <h1 className="no-result">No results found for "{query}"</h1>
     }
 
 
-  return (
-    
-    <div className="search-results">
-        {query && <h1>Search results for: "{query}" </h1>}
-        <Movies results={results}/>
-       
-    </div>
-  )
+    return (
+
+        <div className="search-results">
+            {error && <h1>{error}</h1>}
+            {query && <h1>Search results for: "{query}" </h1>}
+            <Movies results={results} />
+
+        </div>
+    )
 }
 
 export default PageSearch
