@@ -1,7 +1,17 @@
 @use '../base/variables' as *;
 
 footer {
-    font-size: 0.8rem;
-    text-align: center;
     width: 100%;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+    margin: 2rem auto;
+    text-align: center;
+
+    img {
+        width: 6.25rem;
+
+    }
+    p {
+        margin: 0;
+    }
 }
