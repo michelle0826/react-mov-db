@@ -2,9 +2,12 @@ import { API_TOKEN } from '../globals/auth';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatRating, formatDate, formatOverview} from '../globals/formatters';
+import { getStorage } from "../utilities/localStorageUtils";
+import AddToWatch from './AddToWatch';
 
 function Banner() {
     const [bannerMovie, setBannerMovie] = useState([]);
+    const addedMovies = getStorage("watchlistMovies");
 
     useEffect(() => {
         const fetchBannerMovie = async() => {
@@ -41,6 +44,7 @@ function Banner() {
                 <p className='overview'>{formatBannerOverview(bannerMovie.overview)}</p>
                 <div>
                     <p>Rating: {formatRating(bannerMovie.vote_average)}</p>
+                    <AddToWatch movie={bannerMovie} addedMovies={addedMovies}/>
                     <Link className="button-link" to={`/movie/${bannerMovie.id}`}>More Info</Link>
                 </div>
             </div>

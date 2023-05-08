@@ -21,7 +21,7 @@ export function getStorage(addedMovies){
 
 export function removeMovieFromStorage (index, addedMovies){
     let moviesToRemove = getStorage(addedMovies);
-    moviesToRemove.slice(index, 1);
+    moviesToRemove.splice(index, 1);
     moviesToRemove = JSON.stringify(moviesToRemove);
     setStorage(moviesToRemove,addedMovies);
     return -1;
