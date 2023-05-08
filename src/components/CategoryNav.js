@@ -25,14 +25,14 @@ function CategoryNav() {
           <li onClick={() => handleOptionClick('Popular')}>
             <NavLink to={"/category/popular"}>Popular</NavLink>
           </li>
-          <li onClick={() => handleOptionClick('Top Rated')}>
-            <NavLink to={"/category/top-rated"}>Top Rated</NavLink>
-          </li>
           <li onClick={() => handleOptionClick('Now Playing')}>
             <NavLink to={"/category/now-playing"}>Now Playing</NavLink>
           </li>
           <li onClick={() => handleOptionClick('Upcoming')}>
             <NavLink to={"/category/upcoming"}>Upcoming</NavLink>
+          </li>
+          <li onClick={() => handleOptionClick('Top Rated')}>
+            <NavLink to={"/category/top-rated"}>Top Rated</NavLink>
           </li>
         </ul>
       </nav>
