@@ -1,8 +1,7 @@
 import Nav from './Nav';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-
+import siteLogo from "../images/SLATE-logo.png";
 
 function Header() {
     const [navOpen, setNavOpen] = useState(false);
@@ -30,7 +29,7 @@ function Header() {
 
     return (
         <header className={navOpen ? 'open' : undefined}>
-            <Link to="/"><h1>LOGO</h1></Link>
+            <Link to="/"><img src={siteLogo} alt="SLATE logo"/></Link>
             <button className="nav-btn-container"
                 onMouseDown={(e) => { e.preventDefault(); }}
                 onClick={showHideNav}>
