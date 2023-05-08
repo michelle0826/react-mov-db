@@ -16,12 +16,14 @@
     justify-content: center;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 3rem 0.5rem;
     overflow: hidden;
 
     h1 {
       margin: 0.5rem 0;
+      font-size: 2rem;
+      line-height: 2rem;
     }
 
     p {
@@ -49,6 +51,11 @@
 
     div {
       padding: 5rem 2rem;
+
+      h1 {
+        font-size: 3rem;
+        line-height: 2.5rem;
+      }
 
       .overview {
         max-width: 70%;

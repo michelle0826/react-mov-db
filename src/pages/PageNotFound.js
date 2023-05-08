@@ -1,5 +1,3 @@
-// 404 PAGE
-
 import { Link } from 'react-router-dom';
 
 function PageNotFound() {

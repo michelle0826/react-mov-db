@@ -51,22 +51,29 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding: 0.5rem;
   position: absolute;
   top: 100%;
   z-index: -1;
   transition: all 0.2s ease-in;
+  
+  h2 {
+    line-height: 1.1rem;
+    margin: 0 0 0.5rem 0;
+  }
 
-  h2, p {
+  p {
     margin: 0;
+    line-height: 1rem;
   }
 
   .date {
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .button-link {
+    font-weight: 500;
     width: fit-content;
     padding: 0.25rem 1rem;
     align-self: center;
