@@ -39,8 +39,8 @@ function Banner() {
     return (
         <section className="banner-section" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${bannerMovie.backdrop_path})`}}>
             <div>
-                <p className='date'>In theatres {formatDate(bannerMovie.release_date)}</p>
                 <h1>{bannerMovie.title}</h1>
+                <p className='date'>In theatres {formatDate(bannerMovie.release_date)}</p>
                 <p className='overview'>{formatBannerOverview(bannerMovie.overview)}</p>
                 <div>
                     <p>Rating: {formatRating(bannerMovie.vote_average)}</p>

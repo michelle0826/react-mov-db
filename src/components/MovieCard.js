@@ -12,8 +12,8 @@ function MovieCard({ movieObj }) {
   const formatPosterOverview = formatOverview(movieObj.overview, 80);
 
   return (
-    <div className='movie-card'>
-        <div className='poster'>
+    <article className='movie-card'>
+      <div className='poster'>
             {movieObj.poster_path === null ?
                 // true
                 <img src={noPoster} alt={`No poster available for ${movieObj.title}`} /> :
@@ -23,15 +23,14 @@ function MovieCard({ movieObj }) {
         </div>
 
         <div className='info'>
-            <h2>{formatTitle(movieObj.title)}</h2>
-            <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
+            <h1>{formatTitle(movieObj.title)}</h1>
             <p className='rating'>{formatRating(movieObj.vote_average)}</p>
             <p className='date'>{formatDate(movieObj.release_date)}</p>
             <p>{formatPosterOverview}</p>
+            <AddToWatch movie={movieObj} addedMovies={addedMovies}/>
             <Link className="button-link" to={`/movie/${movieObj.id}`}>More Info</Link>
         </div>
-
-    </div>
+    </article>
   )
 }
 

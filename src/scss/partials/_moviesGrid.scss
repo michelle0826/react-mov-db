@@ -1,14 +1,27 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
+
 
 // MOVIE POSTERS
 .movies-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   grid-template-rows: auto;
-  max-width: 64rem;
+  max-width: 90rem;
   gap: 0.5rem;
   padding: 0.5rem;
   margin: 0 auto;
+  justify-content: center;
+
+  @include mq($tablet){
+    grid-template-columns: repeat(auto-fit, minmax(145px, 216px));
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  @include mq($laptop){
+    max-width: 88rem;
+  }
 }
 
 .movie-card {
@@ -58,7 +71,8 @@
   z-index: -1;
   transition: all 0.2s ease-in;
   
-  h2 {
+  h1 {
+    font-size: 1.1rem;
     line-height: 1.1rem;
     margin: 0 0 0.5rem 0;
   }
@@ -84,6 +98,12 @@
       background-color: $brandCol;
       color: $midgroundCol;
     }
+  }
+
+  .add-watchlist-btn {
+    position: relative;
+    top: 0;
+    right: 0;
   }
 
 }
