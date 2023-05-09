@@ -3,12 +3,20 @@
 
 .banner-section {
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   border-radius: 1rem;
-  max-width: 86rem; // 1440px - 2rem margins
   height: fit-content;
-  margin: 0.5rem;
+  margin: 1rem 0.5rem 0;
   
+  @include mq($tablet){
+   margin: 1rem; 
+  }
+
+  @include mq($laptop){
+    max-width: 86rem;
+    margin: 2rem auto;
+  }
+
   > div {
     border-radius: 1rem;
     display: flex;
@@ -20,54 +28,46 @@
     padding: 3rem 0.5rem;
     overflow: hidden;
 
+    @include mq($tablet){
+      padding: 4rem 2rem;
+    }
+
+    @include mq($laptop){
+      padding: 8rem 2rem;
+    }
+
     h1 {
-      margin: 0.5rem 0;
+      margin: 1rem 0;
       font-size: 2rem;
       line-height: 2rem;
       font-weight: 500;
+      width: fit-content;
+
+      @include mq($tablet){
+        font-size: 3rem;
+      }
     }
 
-    p {
+    .overview {
       margin: 0.5rem 0;
+
+      @include mq($tablet){
+        width: 70%;
+      }
     }
   
     .date {
-      font-weight: 600;
+      font-weight: 500;
+      margin: 0.5rem 0;
+      width: fit-content;
     }
 
     div:last-child {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin: 0.5rem 0;
+      gap: 0.5rem;
       padding: 0;
+      width: fit-content;
     }
-  }
-
-}
-
-@media (min-width: 48rem){
-  .banner-section {
-
-    div {
-      padding: 5rem 2rem;
-
-      h1 {
-        font-size: 3rem;
-        line-height: 2.5rem;
-      }
-
-      .overview {
-        max-width: 70%;
-      }
-
-    }
-  }
- 
-}
-
-@media (min-width: 64rem){
-  .banner-section {
-    margin: 2rem 2rem 0;
   }
 }

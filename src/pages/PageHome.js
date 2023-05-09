@@ -79,11 +79,13 @@ function PageHome() {
 
 
   return (
-    <section className="home-page">
-      <Banner />
-      <CategoryNav />
-      <Movies movieData={movieData} />
-    </section>
+    <main>
+      <section className="home-page">
+        <Banner />
+        <CategoryNav />
+        <Movies movieData={movieData} />
+      </section>
+    </main>
   )
 }
 export default PageHome
