@@ -5,6 +5,11 @@
   width: 100%;
   max-width: 50rem;
   margin: 10rem auto;
+  padding: 0 0.5rem;
+
+  @include mq($tablet){
+    padding: 0 1rem;
+  }
 
   > h1 {
     line-height: 2rem;
