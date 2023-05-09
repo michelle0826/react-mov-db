@@ -19,6 +19,7 @@ function SearchBar(props) {
             navigate(`/search/${encodeURIComponent(query)}`)
             setQuery('');
             setNavOpen(false);
+            document.activeElement.blur();
         }
 
     }
