@@ -41,7 +41,7 @@ form {
             padding: 0;
             line-height: 0.5rem;
 
-            @include mq ($tablet) {
+            @include mq($tablet) {
                 position: absolute;
                 top: 1px;
                 bottom: 0;
@@ -51,21 +51,15 @@ form {
     }
 }
 
-.search-results {
-    max-width: 90rem;
-    margin: 0 auto;
-}
-
 .search-results > h1, .no-result{
     margin: 2rem 0.5rem;
 
     @include mq($tablet){
+        font-size: 3rem;
         margin: 2rem 1rem;
     }
 
     @include mq($laptop){
-        max-width: 90rem;
-        padding: 2rem;
-        margin: auto;
+        margin: 2rem;
     }
 }

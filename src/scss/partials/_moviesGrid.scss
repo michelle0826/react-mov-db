@@ -14,13 +14,13 @@
   justify-content: center;
 
   @include mq($tablet){
-    grid-template-columns: repeat(auto-fit, minmax(145px, 216px));
+    grid-template-columns: repeat(auto-fit, minmax(auto, 216px));
     padding: 0 1rem;
     gap: 1rem;
   }
 
   @include mq($laptop){
-    max-width: 88rem;
+    padding: 0 2rem;
   }
 }
 

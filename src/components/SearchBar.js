@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineSearch } from 'react-icons/hi';
-import Header from "./Header";
-
 
 function SearchBar(props) {
     const [query, setQuery] = useState('');

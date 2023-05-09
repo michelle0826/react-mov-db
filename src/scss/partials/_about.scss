@@ -1,14 +1,16 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
 
-.about-section {
+.about-page {
   width: 100%;
   max-width: 50rem;
-  margin: 10rem auto;
   padding: 0 0.5rem;
-
+  min-height: 100%;
+  margin: 2rem auto 0;
+  
   @include mq($tablet){
     padding: 0 1rem;
+    margin: 10rem auto 0;
   }
 
   > h1 {

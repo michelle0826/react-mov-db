@@ -35,18 +35,23 @@ function PageSearch() {
     }, [query])
 
     if (results.length === 0) {
-        return <h1 className="no-result">No results found for "{query}"</h1>
+        return (
+            <main>
+                <section className="search-results">
+                    <h1 className="no-result">No results found for "{query}"</h1>
+                </section>
+            </main>
+        )
     }
-
-
+    
     return (
-
-        <div className="search-results">
-            {error && <h1>{error}</h1>}
-            {query && <h1>Search results for: "{query}" </h1>}
-            <Movies results={results} />
-
-        </div>
+        <main>
+            <section className="search-results">
+                {error && <h1>{error}</h1>}
+                {query && <h1>Search results for: "{query}" </h1>}
+                <Movies results={results} />
+            </section>
+        </main>
     )
 }
 
