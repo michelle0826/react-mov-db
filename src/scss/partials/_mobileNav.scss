@@ -10,12 +10,12 @@
     }
 
     .line {
+        background-color: $brandCol;
         width: 36px;
-        height: 5px;
-        background-color: $brandCol ;
+        height: 3px;
+        border-radius: 3px;
         display: block;
-        margin: 8px auto;
-
+        margin: 9px auto;
 
         //HAMBURGER ANIMATION -- JESSE COUCH (EDITED)
         // https://codepen.io/designcouch/pen/ExvwPY
@@ -54,29 +54,24 @@
 
         .open &:nth-child(1) {
             transition: all 0.3s ease-in-out;
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-            top: -3px;
+            -webkit-transform: rotate(43deg);
+            -moz-transform: rotate(43deg);
+            -o-transform: rotate(43deg);
+            transform: rotate(43deg);
+            top: 0px;
             left: 8px;
         }
 
         .open &:nth-child(3) {
             transition: all 0.3s ease-in-out;
-            -webkit-transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+            -webkit-transform: rotate(-43deg);
+            -moz-transform: rotate(-43deg);
+            -o-transform: rotate(-43deg);
+            transform: rotate(-43deg);
             top: 39px;
             left: 8px;
         }
-
-
-
     }
-
-
 }
 
 .main-nav {
@@ -90,7 +85,7 @@
     .open & {
         transition: height 0.5s ease, visibility 0s;
         visibility: visible;
-        height: 254px;
+        height: 200px;
     }
 
     ul {
@@ -102,10 +97,7 @@
         padding: 0;
         list-style: none;
         text-align: center;
-
     }
-
-    
 
     li {
         line-height: 3rem;
@@ -117,4 +109,7 @@
         }
     }
 
+    li:nth-child(3){
+        margin: 0.5rem 0;
+    }
 }

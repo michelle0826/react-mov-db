@@ -2,17 +2,25 @@
 @use '../base/mixins' as *;
 
 header {
-    background-color: $midgroundCol;
     font-family: $mainFont;
+    background-color: $midgroundCol;
     border-radius: 0 0 1rem 1rem;
-    padding: 1rem;
     display:flex;
     flex-wrap:wrap;
     justify-content: space-between;
     align-items: center;
-        @include mq($tablet){
-            flex-wrap: nowrap;
-        }
+    padding: 0.5rem;
+    max-width: 90rem;
+    margin: 0 auto;
+
+    @include mq($tablet){
+        flex-wrap: nowrap;
+        padding: 0.5rem 1rem;
+    }
+
+    @include mq($laptop){
+        padding: 0.5rem 2rem;
+    }
 
     > a {
         line-height: 0.5rem;
@@ -20,11 +28,9 @@ header {
     
     img {
         width: 6.25rem;
-    }
-}
 
-@media (min-width: 40rem) {
-    header img {
-        width: 12.5rem;
+        @include mq($tablet){
+            width: 10rem;
+        }
     }
 }

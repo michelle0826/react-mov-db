@@ -1,0 +1,25 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.watchlist {
+  max-width: 89rem;
+  margin: auto;
+
+  > h1 {
+    margin: 2rem 0.5rem 0;
+
+    @include mq($tablet){
+      font-size: 3rem;
+      margin: 2rem 1rem 1rem;
+    }
+
+    @include mq($laptop){
+      font-size: 3rem;
+      margin: 2rem 2rem 1rem;
+    }
+  }
+
+  .movies-container {
+    grid-template-columns: repeat(auto-fit, minmax(145px, 216px));
+  }
+}

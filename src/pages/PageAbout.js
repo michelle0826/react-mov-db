@@ -14,7 +14,6 @@ function PageAbout() {
                     This product utilizes the TMDb API to generate content but is neither endorsed nor certifed by TMDb.
                 </p>
                 <Link to="https://www.themoviedb.org/"><img src={tmdbLogo} alt="TMDB logo" /></Link>
-
             </section>
         </main>
     )
