@@ -13,8 +13,8 @@ const Nav = ({ showHideNav, setNavOpen }) => {
     return (
         <nav className="main-nav" >
             <ul>
-                <li onClick={closeNav}><NavLink to="/About">About</NavLink></li>
                 <li onClick={closeNav}><NavLink to="/Watchlist">Watchlist</NavLink></li>
+                <li onClick={closeNav}><NavLink to="/About">About</NavLink></li>
                 <li><SearchBar setNavOpen={setNavOpen} /></li>
             </ul>
         </nav>

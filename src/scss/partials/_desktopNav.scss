@@ -17,18 +17,20 @@
         ul {
             display: flex;
             justify-content: flex-end;
-
+            align-items: center;
+            gap: 1rem;
+            padding-right: 0.25rem;
         }
 
-        li {
-            padding-left: 1rem;
-            padding-right: 1rem;
-
-            a {
-                color: $bodyCol;
-            }
+        a {
+            color: $bodyCol;
+            padding: 1rem;
         }
     }
+}
 
-
+@include mq ($laptop){
+    .main-nav ul {
+        gap: 2rem;
+    }
 }
