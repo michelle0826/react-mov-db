@@ -1,6 +1,6 @@
 import { getStorage } from "../utilities/localStorageUtils";
 import MovieCard from "../components/MovieCard";
-import AddToWatch from "../components/AddToWatch";
+
 
 function PageWatchlist() {
     const addedMovies = getStorage("watchlistMovies");
