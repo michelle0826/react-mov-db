@@ -11,22 +11,30 @@
     margin: 2rem auto;
     padding: 0 1rem;
 
-    p {
+    > p {
         margin: 0;
-        padding: 0.5rem 0 ;
+        padding: 0.5rem 0;
     }
 }
 
 .category-nav {
-    border: 1px solid $bodyCol;
-    background: $midgroundCol;
+    border: 1px solid $brandCol;
+    background: $backgroundCol;
     text-align: center;
     border-radius: 2rem;
     width: 10rem;
     height: fit-content;
     overflow: hidden;
     cursor: pointer;
-    
+    position: relative;
+
+    > p {
+        color: $brandCol;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        margin: 0;
+    }
+
     ul {
         list-style: none;
         text-align: center;
@@ -36,54 +44,97 @@
 
         li {
             width: 100%;
-            // background: linear-gradient(to left, $midgroundCol 50%, $brandCol 50%) right;
-            // background-size: 200% 100%;
-            // transition: all 0.3s ease-in-out;
-
-            &:hover, &:focus, &:active {
-                // background-position: left;
-                background-color: $brandCol;
-            }
+            z-index: 2;
         }
-
+    
         a, a:visited {
             display: block;
             width: 100%;
             padding: 0.5rem;
+            color: $brandCol;
             font-weight: 500;
+            z-index: 2;
             
-            &:hover {
+            &:hover, &:active, &:focus {
+                background-color: $midgroundCol;
+            }
+
+        }
+    }
+
+    @media (max-width: 767px) {
+        ul.show {
+            display: block;
+        }
+    }
+}
+
+@include mq($tablet){
+    
+    .category-section {
+        > p {
+            display: none;
+        }
+    }
+
+    .category-nav {
+        background-color: $midgroundCol;
+        border: none;
+        width: 100%;
+        max-width: 64rem;
+        > p {
+            display: none;
+        }
+
+        ul {
+            display: flex;
+            white-space: nowrap;
+
+            li.selected a.active {
+                background-color: transparent;
                 color: $midgroundCol;
             }
         }
     }
 }
 
-
-@media (max-width: 767px) {
-    .category-nav ul.show {
-        display: block;
+@include mq($laptop){
+    .category-section {
+        padding: 0;
     }
 }
 
-@media (min-width: 768px) {
 
-    .category-section p {
-        display: none;
+// FOR SELECTED CATEGORY - SLIDING ANIMATION
+// revised from https://techmidpoint.com/elastic-tab-animation-navigation-menus/
+
+@include mq($tablet){
+    
+    .tab {
+        position: absolute;
+        height: 100%;
+        width: 25%;
+        left: 0;;
+        bottom: 0;
+        z-index: 1;
+        background-color: $brandCol;
+        border-radius: 2rem;
+        transition: all 0.3s ease;
     }
-
-    .category-nav {
-        border: none;
-        width: 100%;
-        max-width: 64rem;
-        
-        ul {
-            display: flex;
-            white-space: nowrap;
-
-            li {
-                border-radius: 2rem;
-            }
-        }
-    }
+    
+    .tab-popular {
+        left: 0;
+      }
+      
+      .tab-now-playing {
+        left: 25%;
+      }
+      
+      .tab-upcoming {
+        left: 50%;
+      }
+      
+      .tab-top-rated {
+        left: 75%;
+      }
 }
