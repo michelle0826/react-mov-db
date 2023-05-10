@@ -55,8 +55,6 @@ function SingleMovie({ movieObj }) {
                     <p>{movieObj.overview}</p>
                     {key ? (
                     <iframe
-                        width="420"
-                        height="236.25"
                         src={`https://www.youtube.com/embed/${key}`}
                         title="Trailer"
                         allowFullScreen

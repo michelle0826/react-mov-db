@@ -1,4 +1,5 @@
 @use '../base/variables' as *;
+@use '../base/mixins' as *;
 
 .add-watchlist-btn {
   border: none;
@@ -7,7 +8,20 @@
   
   svg {
     color: $bodyCol;
-    height: 2.5rem;
-    width: 2.5rem;
+
+    height: 1.7rem;
+    width: 1.7rem;
+    
+
+    @include mq($laptop){
+      height: 2rem;
+      width: 2rem;
+
+      &:hover, &:active, &:focus {
+        color: $brandCol;
+       }
+    }
+
   }
+
 }

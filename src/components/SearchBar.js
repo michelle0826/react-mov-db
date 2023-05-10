@@ -7,9 +7,11 @@ function SearchBar(props) {
     const navigate = useNavigate();
     const {setNavOpen} = props; 
 
+    // set timeout to track 
     const handleSearchInput = (event) => {
         setQuery(event.target.value);
     }
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,6 +19,7 @@ function SearchBar(props) {
             navigate(`/search/${encodeURIComponent(query)}`)
             setQuery('');
             setNavOpen(false);
+            document.activeElement.blur();
         }
 
     }
