@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { API_TOKEN } from '../globals/auth';
 import Banner from '../components/Banner';
 import Movies from '../components/Movies';
@@ -10,11 +10,11 @@ function PageHome() {
 
   // Sorting out the movies. Using useParam in case we end up with a select options menu so sorting should be working in both cases
 
-   const { categoryName } = useParams();
+  const { categoryName } = useParams();
 
-   const setCategoryUrl = (categoryName) => {
+  const setCategoryUrl = (categoryName) => {
     let categoryUrl;
-    switch (categoryName){
+    switch (categoryName) {
       case 'popular':
         categoryUrl = 'popular';
         break;
@@ -30,13 +30,13 @@ function PageHome() {
       default:
         categoryUrl = 'popular';
     }
-      
+
     return categoryUrl;
 
   }
 
   // For select options
-  
+
   // const navigate = useNavigate();
 
   // const switchCategory = (e) => {
@@ -47,6 +47,7 @@ function PageHome() {
   //Fetching movies
 
   const [movieData, setMovieData] = useState([]);
+  const [catError, setCatError] = useState(null);
 
   useEffect(() => {
 
@@ -54,38 +55,47 @@ function PageHome() {
 
       const categoryUrl = setCategoryUrl(categoryName)
 
-      const res = await fetch(`https://api.themoviedb.org/3/movie/${categoryUrl}?language=en-US&page=1`, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + API_TOKEN
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${categoryUrl}?language=en-US&page=1`, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + API_TOKEN
+          }
+        });
+
+        if (!res.ok) {
+          setCatError('Sorry, an error occurred while retrieving category data');
+
+        } else {
+          let rawMovieData = await res.json();
+          rawMovieData = rawMovieData.results.splice(0, 12);
+          setMovieData(rawMovieData);
+          setCatError(null);
+
         }
-      });
 
-      let rawMovieData = await res.json();
-      
-      rawMovieData = rawMovieData.results.splice(0, 12);
-      
-      
-
-      setMovieData(rawMovieData);
+      } catch (catError) {
+        setCatError('Sorry, an error occurred while retrieving category data');
+      }
 
     }
     
     fetchMovies();
 
-  }, [categoryName])
+}, [categoryName])
 
 
 
-  return (
-    <main>
-      <section className="home-page">
-        <Banner />
-        <CategoryNav />
-        <Movies movieData={movieData} />
-      </section>
-    </main>
-  )
+return (
+  <main>
+    <section className="home-page">
+      <Banner />
+      <CategoryNav />
+      {catError && <h1>{catError}</h1>}
+      <Movies movieData={movieData} />
+    </section>
+  </main>
+)
 }
 export default PageHome
