@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function PageAbout() {
     return(
         <main>
-            <section className="about-section">
+            <section className="about-page">
                 <h1>Your Ultimate Cinematic Guide</h1>
                 <p>
                     Browse Popular, Top Rated, Now Playing, and Upcoming movies on SLATE. Search for titles, check out their ratings, and see how they match up!

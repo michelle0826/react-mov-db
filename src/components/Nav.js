@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
+
 const Nav = ({ showHideNav, setNavOpen }) => {
 
     function closeNav(e) {
@@ -7,9 +8,9 @@ const Nav = ({ showHideNav, setNavOpen }) => {
             showHideNav();
         }else{
          e.target.blur();
-        }
-        
+        }  
     }
+
     return (
         <nav className="main-nav" >
             <ul>
@@ -18,10 +19,6 @@ const Nav = ({ showHideNav, setNavOpen }) => {
                 <li><SearchBar setNavOpen={setNavOpen} /></li>
             </ul>
         </nav>
-               
-
-        
     )
 }
-
 export default Nav;
