@@ -36,7 +36,7 @@
     }
 
     .single-movie-info {
-        margin:1rem;
+        margin: 0 2rem;
         @include mq ($laptop) {
             margin-left: 1rem;
             width: 75%;
