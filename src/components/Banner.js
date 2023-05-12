@@ -7,22 +7,34 @@ import AddToWatch from './AddToWatch';
 
 function Banner() {
     const [bannerMovie, setBannerMovie] = useState([]);
+    const [bannerError, setBannerError] = useState(null);
     const addedMovies = getStorage("watchlistMovies");
 
     useEffect(() => {
         const fetchBannerMovie = async() => {
-            const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + API_TOKEN
-                }
-            });
+            try{
+                const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + API_TOKEN
+                    }
+                });
+                if(!response.ok){
+                    setBannerError('Error: no banner details available');
+                } else {
+                    let responseData = await response.json();
+                    console.log(responseData);
+                    responseData = responseData.results.splice(0,1);
+                    setBannerMovie(responseData[0]);
+                    setBannerError(null);
 
-            let responseData = await response.json();
-            console.log(responseData);
-            responseData = responseData.results.splice(0,1);
-            setBannerMovie(responseData[0]);
+                }
+
+            } catch (bannerError){
+                setBannerError('Error: no banner details available');
+            }
+            
         }
         fetchBannerMovie();
     }, [])
@@ -39,6 +51,7 @@ function Banner() {
     return (
         <section className="banner-section" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${bannerMovie.backdrop_path})`}}>
             <div>
+                {bannerError && <h1>{bannerError}</h1>}
                 <h1>{bannerMovie.title}</h1>
                 <p className='date'>In theatres {formatDate(bannerMovie.release_date)}</p>
                 <p className='overview'>{formatBannerOverview(bannerMovie.overview)}</p>

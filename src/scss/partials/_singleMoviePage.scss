@@ -36,7 +36,7 @@
     }
 
     .single-movie-info {
-        margin:1rem;
+        margin: 0 2rem;
         @include mq ($laptop) {
             margin-left: 1rem;
             width: 75%;
@@ -70,7 +70,8 @@
         iframe {
             margin-top: 1rem;
             border: none;
-            width: 320px;
+            min-width: 304px;
+            margin:0 0.5rem;
             height: 180px;
             display:block;
             margin: 0 auto;
