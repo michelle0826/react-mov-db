@@ -7,11 +7,10 @@
   border-radius: 1rem;
   height: fit-content;
   margin: 1rem 0.5rem 0;
+  position: relative;
 
   .add-watchlist-btn {
-       
     svg {
-      
       height: 2rem;
       width: 2rem;
 
@@ -19,7 +18,6 @@
         height: 2.5rem;
         width: 2.5rem;
       }
-        
     }
   }
   
@@ -40,19 +38,19 @@
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 3rem 0.5rem;
+    padding: 5rem 0.5rem 3rem;
     overflow: hidden;
 
     @include mq($tablet){
-      padding: 4rem 2rem;
+      padding: 6rem 2rem 4rem;
     }
 
     @include mq($laptop){
-      padding: 8rem 2rem;
+      padding: 10rem 2rem 8rem;
     }
 
     h1 {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       font-size: 2rem;
       line-height: 2rem;
       font-weight: 500;
@@ -60,6 +58,7 @@
 
       @include mq($tablet){
         font-size: 3rem;
+        margin: 1rem 0;
       }
     }
 
@@ -75,7 +74,20 @@
       font-weight: 500;
       margin: 0.5rem 0;
       width: fit-content;
+      position: absolute;
+      top: 10%;
+
+      @include mq($tablet){
+        top: 13%;
+        font-size: 1.3rem;
+      }
+
+      @include mq($laptop){
+        top: 23%;
+      }
     }
+
+
 
     div:last-child {
       display: flex;
@@ -83,6 +95,29 @@
       gap: 0.5rem;
       padding: 0;
       width: fit-content;
+
+      > p {
+        margin: 1rem 0;
+
+        @include mq($tablet){
+          font-size: 1.3rem;
+        }
+      }
+
+      .add-watchlist-btn svg {
+        width: 2.7rem;
+        height: 2.7rem;
+        margin-top: 4px;
+      }
+
+      .button-link {
+        border: 2.5px solid $bodyCol;
+        font-weight: 500;
+
+        &:hover {
+          border: 2.5px solid $brandCol;
+        }
+      }
     }
   }
 }
