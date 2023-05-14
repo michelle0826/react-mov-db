@@ -1,10 +1,12 @@
-import tmdbLogo from '../images/tmdb-logo.svg';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import PageTitle from "../utilities/pageTitle";
+import tmdbLogo from "../images/tmdb-logo.svg";
 
 function PageAbout() {
     return(
-        <main>
-            <section className="about-page">
+        <main className="about-page">
+            <PageTitle title="About Slate — Slate Movie Database" />
+            <section className="about-section">
                 <h1>Your Ultimate Cinematic Guide</h1>
                 <p>
                     Browse Popular, Top Rated, Now Playing, and Upcoming movies on SLATE. Search for titles, check out their ratings, and see how they match up!

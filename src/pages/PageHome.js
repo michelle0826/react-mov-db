@@ -1,9 +1,10 @@
 
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
-import { API_TOKEN } from '../globals/auth';
-import Banner from '../components/Banner';
-import Movies from '../components/Movies';
+import { useParams } from "react-router-dom";
+import { API_TOKEN } from "../globals/auth";
+import PageTitle from "../utilities/pageTitle";
+import Banner from "../components/Banner";
+import Movies from "../components/Movies";
 import CategoryNav from "../components/CategoryNav";
 
 function PageHome() {
@@ -89,6 +90,7 @@ function PageHome() {
 
 return (
   <main>
+    <PageTitle title="Home — Slate Movie Database" />
     <section className="home-page">
       <Banner />
       <CategoryNav />

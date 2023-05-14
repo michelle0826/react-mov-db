@@ -1,4 +1,5 @@
 import { getStorage } from "../utilities/localStorageUtils";
+import PageTitle from "../utilities/pageTitle";
 import MovieCard from "../components/MovieCard";
 
 
@@ -7,6 +8,7 @@ function PageWatchlist() {
 
     return (
         <main>
+          <PageTitle title="Your Watchlist — Slate Movie Database" />
           <section className="watchlist">
             <h1>Your Watchlist</h1>
             {addedMovies && addedMovies.length > 0 ? (

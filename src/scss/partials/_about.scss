@@ -2,15 +2,20 @@
 @use '../base/mixins' as *;
 
 .about-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section{
   width: 100%;
   max-width: 50rem;
   padding: 0 0.5rem;
   min-height: 100%;
-  margin: 2rem auto 0;
+  flex-grow: 1;
   
   @include mq($tablet){
     padding: 0 1rem;
-    margin: 10rem auto 0;
   }
 
   > h1 {
