@@ -1,9 +1,11 @@
-import tmdbLogo from '../images/tmdb-logo.svg';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import PageTitle from "../utilities/pageTitle";
+import tmdbLogo from "../images/tmdb-logo.svg";
 
 function PageAbout() {
     return(
         <main>
+            <PageTitle title="About Slate — Slate Movie Database" />
             <section className="about-page">
                 <h1>Your Ultimate Cinematic Guide</h1>
                 <p>

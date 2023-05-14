@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { API_KEY } from "../globals/auth";
+import PageTitle from "../utilities/pageTitle";
 import Movies from "../components/Movies";
 
 
@@ -37,6 +38,7 @@ function PageSearch() {
     if (results.length === 0) {
         return (
             <main>
+                <PageTitle title="No Results — Slate Movie Database" />
                 <section className="search-results">
                     <h1 className="no-result">No results found for "{query}"</h1>
                 </section>
@@ -46,6 +48,7 @@ function PageSearch() {
     
     return (
         <main>
+            <PageTitle title={`"${query}" — Slate Movie Database`} />
             <section className="search-results">
                 {error && <h1>{error}</h1>}
                 {query && <h1>Search results for: "{query}" </h1>}

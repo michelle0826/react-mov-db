@@ -2,7 +2,7 @@ import noPoster from "../images/no-movie-poster.jpg";
 import { formatRating, formatDate } from "../globals/formatters";
 import { getStorage } from "../utilities/localStorageUtils";
 import AddToWatch from "./AddToWatch";
-
+import PageTitle from "../utilities/pageTitle";
 
 function SingleMovie({ movieObj }) {
     const addedMovies = getStorage("watchlistMovies");
@@ -27,6 +27,7 @@ function SingleMovie({ movieObj }) {
 
     return (
         <div className="single-movie">
+            <PageTitle title={`${movieObj.title} — Slate Movie Database`}/> 
             <div className="single-movie-backdrop"
                 style={{
                     backgroundImage: movieObj.backdrop_path && `url(https://image.tmdb.org/t/p/original/${movieObj.backdrop_path})`

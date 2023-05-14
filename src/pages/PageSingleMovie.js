@@ -1,8 +1,8 @@
 // SINGLE MOVIE PAGE
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { API_TOKEN } from '../globals/auth';
-import SingleMovie from '../components/SingleMovie';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { API_TOKEN } from "../globals/auth";
+import SingleMovie from "../components/SingleMovie";
 
 function PageSingleMovie() {
 
@@ -33,7 +33,6 @@ function PageSingleMovie() {
         <main>
             <section className='single-movie-page'>
                 {movieData !== null && <SingleMovie movieObj={movieData}/>}
-               
             </section>
         </main>
     )
