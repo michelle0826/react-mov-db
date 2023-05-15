@@ -10,13 +10,8 @@ a, a:visited {
     color: $bodyCol;
     text-decoration: none;
 
-    &:active, &:hover {
+    &:active, &:hover, &:focus {
         color: $brandCol;
-    }
-
-    &:focus {
-        color: $brandCol;
-        border: 3px dotted $brandCol;
     }
 }
 
