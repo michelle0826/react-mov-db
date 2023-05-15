@@ -1,7 +1,9 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
 
-.watchlist {  
+.watchlist {
+  
+
   > h1 {
     margin: 2rem 0.5rem 0.5rem;
 
@@ -16,7 +18,21 @@
     }
   }
 
+  > p {
+    margin: 0 0.5rem;
+    
+    @include mq($tablet){
+      margin: 0 1rem;
+    }
+
+    @include mq($laptop){
+      margin: 0 2rem;
+    }
+  }
+
   .movies-container {
+    grid-template-columns: repeat(auto-fit, minmax(145px, 216px));
+    
     @include mq($tablet){
       margin: 0 1rem;
       padding: 0;
