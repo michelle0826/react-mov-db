@@ -1,8 +1,8 @@
-import noPoster from "../images/no-movie-poster.jpg";
-import { formatRating, formatDate } from "../globals/formatters";
-import { getStorage } from "../utilities/localStorageUtils";
-import AddToWatch from "./AddToWatch";
-import PageTitle from "../utilities/pageTitle";
+import { formatRating, formatDate } from '../globals/formatters';
+import { getStorage } from '../utilities/localStorageUtils';
+import noPoster from '../images/no-movie-poster.jpg';
+import AddToWatch from './AddToWatch';
+import PageTitle from '../utilities/pageTitle';
 
 function SingleMovie({ movieObj }) {
     const addedMovies = getStorage("watchlistMovies");
@@ -24,15 +24,9 @@ function SingleMovie({ movieObj }) {
     
     const key = findTrailer();
 
-
     return (
         <div className="single-movie">
-            <PageTitle title={`${movieObj.title} — Slate Movie Database`}/> 
-            <div className="single-movie-backdrop"
-                style={{
-                    backgroundImage: movieObj.backdrop_path && `url(https://image.tmdb.org/t/p/original/${movieObj.backdrop_path})`
-                }}>
-            </div>
+            <PageTitle title={`${movieObj.title} — Slate Movie Database`}/>
             <div className="single-movie-content">
                 <div className="single-movie-poster">
                     {movieObj.poster_path === null ?
@@ -47,7 +41,7 @@ function SingleMovie({ movieObj }) {
                     </div>
                     <h2>{movieObj.title}</h2>
                     <p>Release Date: {formatDate(movieObj.release_date)}</p>
-                    <p>Genres: {movieObj.genres.map((genre, index) => (
+                    <p>Genre: {movieObj.genres.map((genre, index) => (
                         <span key={genre.id}>
                             {genre.name}{index !== movieObj.genres.length - 1 && ', '}
                         </span>
@@ -61,7 +55,6 @@ function SingleMovie({ movieObj }) {
                         allowFullScreen
                     ></iframe>) 
                     : (movieObj.backdrop_path ?(<img className="no-trailer" src={`https://image.tmdb.org/t/p/original/${movieObj.backdrop_path}`} alt={movieObj.title}/>) : null )}
-
                 </div>
             </div>
         </div>

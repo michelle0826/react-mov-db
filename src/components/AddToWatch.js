@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { setStorage, getStorage, removeMovieFromStorage } from '../utilities/localStorageUtils';
-import { BsPlusCircle, BsPlusCircleFill } from "react-icons/bs";
-
+import { BsPlusCircle, BsPlusCircleFill } from 'react-icons/bs';
 
 function AddToWatch(props) {
   const [watchlistMovies, setWatchlistMovies] = useState(getStorage('watchlistMovies'));
@@ -22,7 +21,6 @@ function AddToWatch(props) {
   const isMovieAdded = watchlistMovies.some((addedMovie) => addedMovie.id === props.movie.id);
   const addedMovieIndex = watchlistMovies.findIndex((addedMovie) => addedMovie.id === props.movie.id);
 
-
   return (
     <button className="add-watchlist-btn" onClick={isMovieAdded ? () => removeFromWatchlist(addedMovieIndex) : () => addToWatchlist(props.movie)}>
       {isMovieAdded ? <BsPlusCircleFill /> : <BsPlusCircle/>}
@@ -30,4 +28,4 @@ function AddToWatch(props) {
   );
 }
 
-export default AddToWatch;
+export default AddToWatch

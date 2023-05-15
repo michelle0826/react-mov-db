@@ -12,7 +12,6 @@ function SearchBar(props) {
         setQuery(event.target.value);
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         if (query.trim() !== '') {
@@ -21,8 +20,8 @@ function SearchBar(props) {
             setNavOpen(false);
             document.activeElement.blur();
         }
-
     }
+
     return (
 
         <form className="search-bar" onSubmit={handleSubmit}>

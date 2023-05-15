@@ -14,9 +14,14 @@ export function formatOverview(overview, maxLength) {
 }
 
 export function formatDate(date){
+  if(!date){
+    return 'No Date Available';
+  }
+  else {
     const dateParts = new Date(date);
     const month = dateParts.toLocaleString('default', {month: 'long'});
     const day = dateParts.toLocaleString('default', {day: 'numeric'});
     const year = dateParts.toLocaleString('default', {year: 'numeric'});
     return `${month} ${day}, ${year}`;
-  };
+  }
+};

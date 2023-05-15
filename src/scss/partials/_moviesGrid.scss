@@ -1,8 +1,6 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
 
-
-// MOVIE POSTERS
 .movies-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
@@ -40,7 +38,6 @@
       top: 0%;
     }
   }
-
 }
 
 .poster {
@@ -48,21 +45,19 @@
   height: 100%;
   cursor: pointer;
   
-    img {
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      object-fit: cover;
-    }
-
+  img {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+  }
 }
 
 .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-   
   width: 100%;
   height: 100%;
   font-size: 0.8rem;
@@ -74,9 +69,9 @@
   
   h1 {
     font-size: 1.1rem;
-    line-height: 1.1rem;
-    margin: 0 0 0.5rem 0;
-    padding-top: 3.8rem;
+    line-height: 1.2rem;
+    margin: 0 0 0.25rem 0;
+    padding-top: 3.9rem;
 
     @include mq($laptop){
       font-size: 1.5rem;
@@ -84,7 +79,6 @@
     
   }
   
-
   p {
     margin: 0;
   }
@@ -97,7 +91,10 @@
     right: 0.5rem;
     left: 0.5rem;
     
-   
+    > button {
+      padding: 0;
+    }
+
     .rating {
       font-size: 1.3rem;
 
@@ -124,7 +121,6 @@
       font-size: 1rem;
     }
   }
-
   
   .button-link {
     font-weight: 500;
@@ -139,5 +135,4 @@
       color: $midgroundCol;
     }
   }
-
 }

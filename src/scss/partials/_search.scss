@@ -40,6 +40,7 @@ form {
             margin: 0 1rem;
             padding: 0;
             line-height: 0.5rem;
+            outline: none;
 
             @include mq($tablet) {
                 position: absolute;

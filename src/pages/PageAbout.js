@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import PageTitle from "../utilities/pageTitle";
-import tmdbLogo from "../images/tmdb-logo.svg";
+import { Link } from 'react-router-dom';
+import PageTitle from '../utilities/pageTitle';
+import tmdbLogo from '../images/tmdb-logo.svg';
 
 function PageAbout() {
     return(

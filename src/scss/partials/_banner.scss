@@ -112,8 +112,9 @@
         border: 2.5px solid $bodyCol;
         font-weight: 500;
 
-        &:hover {
+        &:hover, &:focus {
           border: 2.5px solid $brandCol;
+          color: $midgroundCol;
         }
       }
     }

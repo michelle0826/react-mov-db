@@ -6,9 +6,18 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2rem;
 }
 
-    a, a:visited {
+a, a:visited {
     color: $bodyCol;
     text-decoration: none;
+
+    &:active, &:hover {
+        color: $brandCol;
+    }
+
+    &:focus {
+        color: $brandCol;
+        border: 3px dotted $brandCol;
+    }
 }
 
 .button-link {
@@ -23,7 +32,6 @@ h1, h2, h3, h4, h5, h6 {
         color: $midgroundCol;
     }
 }
-
 
 // CONTAINERS
 body {

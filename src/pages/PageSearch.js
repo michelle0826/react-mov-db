@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom";
-import { API_KEY } from "../globals/auth";
-import PageTitle from "../utilities/pageTitle";
-import Movies from "../components/Movies";
-
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import { API_KEY } from '../globals/auth';
+import PageTitle from '../utilities/pageTitle';
+import Movies from '../components/Movies';
 
 function PageSearch() {
     const { query } = useParams();
@@ -27,11 +26,9 @@ function PageSearch() {
             } catch (error) {
                 setError('Sorry, an error occurred while retrieving movie data');
             }
-
         }
 
         fetchSearchData();
-
 
     }, [query])
 

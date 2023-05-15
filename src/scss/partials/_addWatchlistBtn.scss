@@ -8,10 +8,8 @@
   
   svg {
     color: $bodyCol;
-
     height: 1.7rem;
     width: 1.7rem;
-    
 
     @include mq($laptop){
       height: 2rem;
@@ -19,9 +17,7 @@
 
       &:hover, &:active, &:focus {
         color: $brandCol;
-       }
+      }
     }
-
   }
-
 }

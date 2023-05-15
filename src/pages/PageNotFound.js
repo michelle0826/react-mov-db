@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import PageTitle from "../utilities/pageTitle";
-
+import { Link } from 'react-router-dom';
+import PageTitle from '../utilities/pageTitle';
 
 function PageNotFound() {
     return (
@@ -12,7 +11,6 @@ function PageNotFound() {
 	        </section>
         </main>
     );
-    
 };
 
-export default PageNotFound;
+export default PageNotFound

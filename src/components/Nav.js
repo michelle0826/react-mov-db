@@ -21,4 +21,4 @@ const Nav = ({ showHideNav, setNavOpen }) => {
         </nav>
     )
 }
-export default Nav;
+export default Nav
