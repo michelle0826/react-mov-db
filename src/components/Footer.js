@@ -1,4 +1,4 @@
-import siteLogo from "../images/SLATE-logo.png";
+import siteLogo from '../images/SLATE-logo.png';
 
 function Footer() {
     return (

@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import noPoster from '../images/no-movie-poster.jpg';
 import { formatDate, formatRating, formatTitle, formatOverview } from '../globals/formatters';
-import { getStorage } from "../utilities/localStorageUtils";
+import { getStorage } from '../utilities/localStorageUtils';
+import noPoster from '../images/no-movie-poster.jpg';
 import AddToWatch from './AddToWatch';
 
 function MovieCard({ movieObj }) {

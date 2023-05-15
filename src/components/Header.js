@@ -1,7 +1,7 @@
-import Nav from './Nav';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import siteLogo from "../images/SLATE-logo.png";
+import Nav from './Nav';
+import siteLogo from '../images/SLATE-logo.png';
 
 function Header() {
     const [navOpen, setNavOpen] = useState(false);
@@ -16,8 +16,7 @@ function Header() {
         }
     }
 
-    //not applying at desktop size, open class still gets applied
-
+    // not applying at desktop size, open class still gets applied
     useEffect(() => {
         let mediaQuery = window.matchMedia('(min-width:768px)');
         mediaQuery.addEventListener('change', isDesktop)
@@ -38,8 +37,8 @@ function Header() {
                     <span className="line"></span>
                     <span className="line"></span>
                 </span>
-                {/* <span className="sr-only">Menu</span> */}
             </button>
+            
             <Nav showHideNav={showHideNav} setNavOpen={setNavOpen} />
             
         </header>

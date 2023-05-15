@@ -1,3 +1,6 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
 .pnf {
   display: flex;
   flex-direction: column;
@@ -9,12 +12,8 @@
     font-size: 1.5rem;
     line-height: 2rem;
     margin: 1rem 0;
-  }
-}
 
-@media (min-width: 48rem){
-  .pnf {
-    h1 {
+    @include mq($tablet){
       font-size: 2.5rem;
       margin: 2rem 0;
     }

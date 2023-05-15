@@ -1,15 +1,12 @@
-
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { API_TOKEN } from "../globals/auth";
-import PageTitle from "../utilities/pageTitle";
-import Banner from "../components/Banner";
-import Movies from "../components/Movies";
-import CategoryNav from "../components/CategoryNav";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_TOKEN } from '../globals/auth';
+import PageTitle from '../utilities/pageTitle';
+import Banner from '../components/Banner';
+import CategoryNav from '../components/CategoryNav';
+import Movies from '../components/Movies';
 
 function PageHome() {
-
-  // Sorting out the movies. Using useParam in case we end up with a select options menu so sorting should be working in both cases
 
   const { categoryName } = useParams();
 
@@ -31,21 +28,8 @@ function PageHome() {
       default:
         categoryUrl = 'popular';
     }
-
     return categoryUrl;
-
   }
-
-  // For select options
-
-  // const navigate = useNavigate();
-
-  // const switchCategory = (e) => {
-  //     const category = e.target.value;
-  //     navigate(`/category/${category}`);
-  // };
-
-  //Fetching movies
 
   const [movieData, setMovieData] = useState([]);
   const [catError, setCatError] = useState(null);
@@ -68,25 +52,23 @@ function PageHome() {
         if (!res.ok) {
           setCatError('Sorry, an error occurred while retrieving category data');
 
-        } else {
+        }
+        else {
           let rawMovieData = await res.json();
           rawMovieData = rawMovieData.results.splice(0, 12);
           setMovieData(rawMovieData);
           setCatError(null);
-
         }
 
-      } catch (catError) {
+      }
+      catch (catError) {
         setCatError('Sorry, an error occurred while retrieving category data');
       }
-
     }
-    
-    fetchMovies();
+
+  fetchMovies();
 
 }, [categoryName])
-
-
 
 return (
   <main>

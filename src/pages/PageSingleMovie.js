@@ -1,8 +1,8 @@
 // SINGLE MOVIE PAGE
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { API_TOKEN } from "../globals/auth";
-import SingleMovie from "../components/SingleMovie";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_TOKEN } from '../globals/auth';
+import SingleMovie from '../components/SingleMovie';
 
 function PageSingleMovie() {
 
@@ -20,13 +20,11 @@ function PageSingleMovie() {
                 }
             });
 
-                let rawMovieData = await res.json();
-                setMovieData(rawMovieData);
+            let rawMovieData = await res.json();
+            setMovieData(rawMovieData);
         }
 
-            fetchMovie();
-
-            
+        fetchMovie();
     }, [id])
 
     return(

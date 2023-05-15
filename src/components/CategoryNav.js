@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function CategoryNav() {
-  const [isOpen, setIsOpen] = useState(false); // shows/hides links
-  const [selectedOption, setSelectedOption] = useState('Popular'); // display selected link on button
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('Popular');
 
   function handleOptionClick(option) {
     setSelectedOption(option);
@@ -11,20 +11,16 @@ function CategoryNav() {
   }
 
   function handleNavClick() {
-    if (window.innerWidth < 768){
-      setIsOpen(!isOpen);
-    }
+    setIsOpen(!isOpen);
   }
 
   return (
     <section className='category-section'>
       <p>Browse by: </p>
-      <nav className='category-nav' onClick={handleNavClick}>
-        {/* when isOpen is true and on smaller screens, the p tag that displays the current selectedOption is hidden so that only the li's are shown */}
-        <p style={{ display: isOpen || window.innerWidth >= 768 ? 'none' : 'block'}}>{selectedOption}</p>
 
-        {/* visibility is conditional to state and window width */}
-        <ul className={ isOpen || window.innerWidth >= 768 ? 'show' : null}>
+      <nav className='category-nav' onClick={handleNavClick}>
+        
+        <ul className={ isOpen || window.innerWidth >=768 ? 'show' : null}>
 
           <li className={selectedOption === 'Popular' ? 'selected' : null} onClick={() => handleOptionClick('Popular')}>
             <NavLink to={"/category/popular"}>Popular</NavLink>
@@ -41,7 +37,6 @@ function CategoryNav() {
           <li className={selectedOption === 'Top Rated' ? 'selected' : null} onClick={() => handleOptionClick('Top Rated')}>
             <NavLink to={"/category/top-rated"}>Top Rated</NavLink>
           </li>
-
         </ul>
 
         {selectedOption && <span className={`tab tab-${selectedOption.toLowerCase().replace(/\s/g, '-')}`}></span>}
@@ -51,4 +46,4 @@ function CategoryNav() {
   );
 }
 
-export default CategoryNav;
+export default CategoryNav

@@ -2,7 +2,7 @@ import { API_TOKEN } from '../globals/auth';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatRating, formatDate, formatOverview} from '../globals/formatters';
-import { getStorage } from "../utilities/localStorageUtils";
+import { getStorage } from '../utilities/localStorageUtils';
 import AddToWatch from './AddToWatch';
 
 function Banner() {
@@ -28,13 +28,11 @@ function Banner() {
                     responseData = responseData.results.splice(0,1);
                     setBannerMovie(responseData[0]);
                     setBannerError(null);
-
                 }
 
             } catch (bannerError){
                 setBannerError('Error: no banner details available');
             }
-            
         }
         fetchBannerMovie();
     }, [])

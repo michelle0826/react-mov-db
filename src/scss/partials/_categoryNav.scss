@@ -11,28 +11,34 @@
     margin: 2rem auto;
     padding: 0 1rem;
 
+    @include mq($laptop){
+        padding: 0;
+    }
+
     > p {
         margin: 0;
         padding: 0.5rem 0;
+
+        @include mq($tablet){
+            display: none;
+        }
     }
 }
 
 .category-nav {
     border: 1px solid $brandCol;
-    background: $backgroundCol;
-    text-align: center;
+    background-color: $backgroundCol;
     border-radius: 2rem;
-    width: 10rem;
-    height: fit-content;
     overflow: hidden;
     cursor: pointer;
+    width: 10rem;
     position: relative;
 
-    > p {
-        color: $brandCol;
-        font-weight: 500;
-        padding: 0.5rem 0;
-        margin: 0;
+    @include mq($tablet){
+        background-color: $midgroundCol;
+        border: none;
+        width: 100%;
+        max-width: 64rem;
     }
 
     ul {
@@ -40,11 +46,35 @@
         text-align: center;
         padding: 0;
         margin: 0;
-        display: none;
+        height: fit-content;
 
+        @include mq($tablet){
+            display: flex;
+            white-space: nowrap;
+        }
+
+        // On mobile, li are hidden by default unless they have class of 'selected'
         li {
             width: 100%;
             z-index: 2;
+            display: none;
+            
+            // on larger, screens all li are always displayed
+            @include mq($tablet){
+                display: block;
+            }
+        }
+
+        li.selected {
+            display: block;
+            
+            // on larger screens, will use .tab as background of selected option
+            @include mq($tablet) {
+                a {
+                background-color: transparent;
+                color: $midgroundCol;
+                }
+            }
         }
     
         a, a:visited {
@@ -58,50 +88,12 @@
             &:hover, &:active, &:focus {
                 background-color: $midgroundCol;
             }
-
         }
     }
 
-    @media (max-width: 767px) {
-        ul.show {
-            display: block;
-        }
-    }
-}
-
-@include mq($tablet){
-    
-    .category-section {
-        > p {
-            display: none;
-        }
-    }
-
-    .category-nav {
-        background-color: $midgroundCol;
-        border: none;
-        width: 100%;
-        max-width: 64rem;
-        
-        > p {
-            display: none;
-        }
-
-        ul {
-            display: flex;
-            white-space: nowrap;
-
-            li.selected a {
-                background-color: transparent;
-                color: $midgroundCol;
-            }
-        }
-    }
-}
-
-@include mq($laptop){
-    .category-section {
-        padding: 0;
+    // onClick, class of 'show' will be applied to ul, and all li are displayed as a result
+    ul.show li {
+        display: block;
     }
 }
 
@@ -124,17 +116,17 @@
     
     .tab-popular {
         left: 0;
-      }
+    }
       
-      .tab-now-playing {
+    .tab-now-playing {
         left: 25%;
-      }
+    }
       
-      .tab-upcoming {
+    .tab-upcoming {
         left: 50%;
-      }
+    }
       
-      .tab-top-rated {
+    .tab-top-rated {
         left: 75%;
-      }
+    }
 }

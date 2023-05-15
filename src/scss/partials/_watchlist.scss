@@ -17,7 +17,6 @@
   }
 
   .movies-container {
-    
     @include mq($tablet){
       margin: 0 1rem;
       padding: 0;
